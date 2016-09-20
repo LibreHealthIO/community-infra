@@ -1,0 +1,37 @@
+---
+users:
+ rob:
+   comment: Robby O\'Connor
+   groups: 'admin'
+   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZCWTONLhd0UN44/w17qVYxzFgfiM/o+dWn449j9T41vyTHbWODpFGAMufdpS0Kj+/z7Iz7xROjZ2CcjrTGX0wBnn2OX2TOZ9WEngfsW3qCYGvZ4+Yb1l2lXEsL9hivkTq4eksCV+RGBbDFfeSxlXpIcJM1crPljaDbrsIRFMI+PTx1eCIEm1hm6gaQdKpu8sy7lHIgto4fqNhEMHZN41qwDjen7qify2Jz/rfEp218rUnkEx6ik8knjAo4Wo6yUJ+RUuxmxhXCPQ5zqFlewXNgfzuz1SNa0QBW9THgPWuh4ySWyV0g8f5NpEVZP5TRL5+5C+IGNtZHB2bW+p1+9vD rob@rob-LAPTOP"
+ sunbiz:
+   comment: Saptarshi Purkayastha
+   groups: 'admin'
+   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAsE0rVS6zjGteLDOfAwRxZC4MAG5StjqJRwAb5Ydkdq7tY/rv5PWeoOAO2khisjt+Vo1Ds7TZLMU7uk/pEZfAxmkvXC0R8MrgWWZ2GisRvY+4/HCZh1bcCqDJLY7i9doyPvXmNd0QwCwQs4nEuGIt+KguMgRYD5KxUfeJCzlWQ5bRb2Y9LZ/7FpId4WpRrvsqnDEF2MRRNA26kdL+L8ZQNtKwhbgK4AgwOtiXbAATqHsnrUY21w7aWCIVIr4ZPxisYYnX1+amPeRnd5JLxPyuCZBKvPvgUZaSfe+fJ6w0x91mBzKWag8wpqi61Sg1tcsNm2QCC4N/dOwf+5WwFJrdMw== saptpurk-sunbiz"
+
+sudo_users:
+  - root
+  - "%wheel"
+  - "%admin"
+
+# timezone for all servers
+timezone: UTC
+
+# Manage ufw config and ufw rules
+ufw_config:
+  globalconfig:
+    direction: incoming
+    logging: "off"
+    policy: reject
+    state: enabled
+
+ufw_rules:
+  sshd:
+    port: 22
+    proto: tcp
+    rule: allow
+
+# Do not run without setting this!!!!!
+datadog_api_key: ""
+
+docker_compose_version: 1.8.0

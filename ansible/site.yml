@@ -1,0 +1,31 @@
+---
+# master playbook
+- hosts: all
+  become: yes
+  become_user: root
+  roles:
+    - datadog
+    - users
+    - sudo
+    - sshd
+    - ufw
+    - docker
+    - docker-compose
+    # - ntp
+    # - timezone
+    - crontab
+
+- hosts: toolkit
+  become: yes
+  become_user: root
+  roles:
+    - nginx
+    - java
+    - tomcat
+
+- hosts: ehr
+  become: yes
+  become_user: root
+  roles:
+    - apache
+    - php
