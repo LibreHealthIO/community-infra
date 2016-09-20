@@ -1,0 +1,6 @@
+---
+users:
+  ci:
+    comment: GitLab CI User for Deployment
+    groups: 'admin'
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJTvvrrvizpiiZcmNMgUtI9zzf/Tc2j0j8HfvW0UeEbu7YM9LVhpeJwGj5u+ox4hiBWa5achDCH4RWWQNkxJYD7kD87gTCaAufVlZvW10pCfnPpbiVPeHDBVy2TIGJSYoxQj14PxF8eoypBAQzdZ1bl/cf5aZlmZzZyELq8V64io1+R2PxGC3h1Z8/A/QJMRO6/9j7tgdZ+aaveZruBfMYTgxAbty0ldFSK4plTQ0jnFL3NOD5NPezy6+omOBv8KmTV7V854/5h6NNEXVG/3iIakQj8vsX44TB15Z98aXW27SyPI5K9th/6/ZZ0HJKmMW37EZfFbUrw/F2SBwwBtrz gitlabci"
