@@ -23,6 +23,7 @@ apache_global_vhost_settings: |
 apache_vhosts:
   # Additional properties: 'serveradmin, serveralias, extra_parameters'.
   - servername: "ehr.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
     extra_parameters: |
       Redirect permanent / https://ehr.librehealth.io
