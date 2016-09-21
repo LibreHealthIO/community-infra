@@ -31,3 +31,4 @@
   roles:
     - apache
     - php
+    - composer
