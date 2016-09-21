@@ -1,0 +1,10 @@
+- include: common.yml
+
+- hosts: toolkit
+  name: LibreHealth Toolkit Play
+  become: yes
+  become_user: root
+  roles:
+    - nginx
+    - java
+    - tomcat
