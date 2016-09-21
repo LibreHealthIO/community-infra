@@ -1,0 +1,18 @@
+---
+# common playbook
+
+- include: datadog.yml
+- hosts: all
+  name: Common Play
+  become: yes
+  become_user: root
+  roles:
+    - users
+    - sudo
+    - sshd
+    - ufw
+    - docker
+    - docker-compose
+    # - ntp
+    # - timezone
+    - crontab
