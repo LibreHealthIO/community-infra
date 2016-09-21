@@ -31,7 +31,4 @@ ufw_rules:
     proto: tcp
     rule: allow
 
-# Do not run without setting this!!!!!
-datadog_api_key: ""
-
 docker_compose_version: 1.8.0

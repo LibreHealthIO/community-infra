@@ -4,34 +4,34 @@ forums.librehealth.io
 ehr.librehealth.io
 toolkit.librehealth.io
 
-[DigitalOcean]
+[community]
 chat.librehealth.io
 forums.librehealth.io
 
-[community]
+[DigitalOcean]
 chat.librehealth.io
 forums.librehealth.io
 
 [ehr]
 ehr.librehealth.io
 
-[toolkit]
+[gitlabci]
+ehr.librehealth.io
 toolkit.librehealth.io
 
 [librehealth]
 chat.librehealth.io
 forums.librehealth.io
 
-[www]
-chat.librehealth.io
-forums.librehealth.io
-ehr.librehealth.io
-toolkit.librehealth.io
-
 [mysql]
 ehr.librehealth.io
 toolkit.librehealth.io
 
-[gitlabci]
+[toolkit]
+toolkit.librehealth.io
+
+[www]
+chat.librehealth.io
+forums.librehealth.io
 ehr.librehealth.io
 toolkit.librehealth.io
