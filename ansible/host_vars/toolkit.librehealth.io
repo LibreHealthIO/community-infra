@@ -29,16 +29,10 @@ nginx_vhosts:
     add_header Strict-Transport-Security max-age=15768000;
     root /usr/share/nginx/html;
     location / {
-      proxy_pass http://localhost:8080/;
-      proxy_http_version 1.1;
-      proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection "upgrade";
-      proxy_set_header Host $http_host;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
       proxy_set_header X-Forward-Proto http;
-      proxy_set_header X-Nginx-Proxy true;
-      proxy_redirect off;
+      proxy_pass http://127.0.0.1:8080/;
     }
 java_packages:
   - openjdk-8-jre-headless
@@ -46,22 +40,11 @@ java_packages:
 tomcat_version: 8
 tomcat_port: 8080
 tomcat_control_port: 8005
-
 tomcat_catalina_home: "/usr/share/tomcat{{tomcat_version}}"
 tomcat_catalina_base: "/var/lib/tomcat{{tomcat_version}}"
-
-
-
-tomcat_java_opts: -Djava.awt.headless=true -Xmx2048m -XX:+UseConcMarkSweepGC
+tomcat_java_opts: -Djava.awt.headless=true -Xmx4066m -Xms1024m -XX:+UseConcMarkSweepGC
 tomcat_catalina_opts:
-
-tomcat_global_naming_resources:
-tomcat_jvm_route:
-
-
 option_tomcat_admin_install: false
 option_tomcat_user_install: false
 option_tomcat_native_install: true
-
-
 option_tomcat_mysql_jbdc_install: true
