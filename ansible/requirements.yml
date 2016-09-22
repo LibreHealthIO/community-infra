@@ -9,6 +9,8 @@
   name: docker
 - src: michaelcontento.docker-compose
   name: docker-compose
+- src: zerohacks.imagemagick
+  name: imagemagick
 - src: geerlingguy.java
   name: java
 - src: geerlingguy.php

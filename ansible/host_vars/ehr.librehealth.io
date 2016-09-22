@@ -27,10 +27,49 @@ apache_vhosts:
     documentroot: "/opt/ehr"
     extra_parameters: |
       Redirect permanent / https://ehr.librehealth.io
+        <Directory "/opt/ehr">
+            AllowOverride FileInfo
+        </Directory>
+        <Directory "/opt/ehr/sites">
+            AllowOverride None
+        </Directory>
+        <Directory "/opt/ehr/sites/*/documents">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/ehr/sites/*/edi">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/ehr/sites/*/era">
+            order deny,allow
+            Deny from all
+        </Directory>
+
 apache_mods_enabled:
   - rewrite.load
   - php7.0.load
 php_enable_webserver: false
+php_max_input_vars: "3000"
+php_short_open_tag: true
+php_max_input_time: "90"
+
+php_packages:
+  - php7.0-common
+  - php7.0-cli
+  - php7.0-dev
+  - php7.0-fpm
+  - libpcre3-dev
+  - php7.0-gd
+  - php7.0-curl
+  - php7.0-imap
+  - php7.0-json
+  - php7.0-opcache
+  - php7.0-xml
+  - php7.0-mbstring
+  - php7.0-mcrypt
+  - php7.0-soap
+
 letsencrypt_domain: ehr.librehealth.io
 letsencrypt_certbot_args:
   - --apache
