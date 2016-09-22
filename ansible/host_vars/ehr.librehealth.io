@@ -33,13 +33,6 @@ apache_mods_enabled:
 php_enable_webserver: false
 letsencrypt_domain: ehr.librehealth.io
 letsencrypt_certbot_args:
-  - certonly
-  - --text
-  - -n
-  - --no-self-upgrade
-  - -m {{ letsencrypt_email }}
-  - --domains {{ _letsencrypt_domains | default(letsencrypt_domain) }}
-  - --agree-tos
   - --apache
   - --expand
 letsencrypt_pause_services:
