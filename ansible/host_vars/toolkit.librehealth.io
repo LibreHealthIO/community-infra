@@ -42,7 +42,7 @@ tomcat_port: 8080
 tomcat_control_port: 8005
 tomcat_catalina_home: "/usr/share/tomcat{{tomcat_version}}"
 tomcat_catalina_base: "/var/lib/tomcat{{tomcat_version}}"
-tomcat_java_opts: -Djava.awt.headless=true -Xmx4066m -Xms1024m -XX:+UseConcMarkSweepGC
+tomcat_java_opts: -Djava.awt.headless=true -Xmx4096m  -Xms1024m -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC
 tomcat_catalina_opts:
 option_tomcat_admin_install: false
 option_tomcat_user_install: false
