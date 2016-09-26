@@ -71,8 +71,7 @@ php_packages:
   - php7.0-soap
 
 letsencrypt_domain: ehr.librehealth.io
-letsencrypt_certbot_args:
-  - --apache
-  - --expand
+letsencrypt_email: infrastructure@librehealth.io
+letsencrypt_force_renew: false
 letsencrypt_pause_services:
   - apache2

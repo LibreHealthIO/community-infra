@@ -1,5 +1,7 @@
 ---
 letsencrypt_domain: toolkit.librehealth.io
+letsencrypt_email: infrastructure@librehealth.io
+letsencrypt_force_renew: false
 letsencrypt_pause_services:
   - nginx
 
