@@ -8,3 +8,8 @@
     - nginx
     - java
     - tomcat
+  tasks:
+    - name: Adding existing ci user to tomcat group
+      user: name='ci'
+        groups='tomcat8'
+        append=yes
