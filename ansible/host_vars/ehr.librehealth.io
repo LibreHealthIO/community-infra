@@ -26,6 +26,11 @@ apache_vhosts:
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
     extra_parameters: |
+      <Location /server-status>
+         SetHandler server-status
+         Allow from 127.0.0.1
+         Deny from all
+      </Location>
       Redirect permanent / https://ehr.librehealth.io
         <Directory "/opt/ehr">
             AllowOverride FileInfo
@@ -49,6 +54,7 @@ apache_vhosts:
 apache_mods_enabled:
   - rewrite.load
   - php7.0.load
+  - status.load
 php_enable_webserver: false
 php_max_input_vars: "3000"
 php_short_open_tag: true
@@ -75,3 +81,10 @@ letsencrypt_email: infrastructure@librehealth.io
 letsencrypt_force_renew: false
 letsencrypt_pause_services:
   - apache2
+datadog_checks:
+  apache:
+    init_config:
+    instances:
+      - apache_status_url: http://localhost/server-status?auto
+        tags:
+          - instance:ehr
