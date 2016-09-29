@@ -37,6 +37,13 @@ nginx_vhosts:
       proxy_set_header X-Forward-Proto http;
       proxy_pass http://127.0.0.1:8080/;
     }
+    location /nginx_status {
+        stub_status on;
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+    }
+
 java_packages:
   - openjdk-8-jre-headless
 
@@ -51,3 +58,11 @@ option_tomcat_admin_install: false
 option_tomcat_user_install: false
 option_tomcat_native_install: true
 option_tomcat_mysql_jbdc_install: true
+datadog_checks:
+  nginx:
+    init_config:
+    instances:
+      - nginx_status_url: https://localhost/nginx_status/
+        ssl_validation: False
+        tags:
+          - instance:toolkit
