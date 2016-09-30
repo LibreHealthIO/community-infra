@@ -2,11 +2,8 @@
 # Playbook for provisioning ssl certs using cerbot. Additional variables
 # specified in host_vars.
 - hosts: www
+  name: "Let's Encrypt Play"
   become: yes
   become_user: root
   roles:
-    - role: letsencrypt
-      letsencrypt_email: infrastructure@librehealth.io
-      letsencrypt_request_www: false
-      letsencrypt_force_renew: false
-      letsencrypt_certbot_version: master
+    - letsencrypt

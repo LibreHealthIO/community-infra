@@ -1,4 +1,8 @@
 ---
+letsencrypt_email: infrastructure@librehealth.io
+letsencrypt_request_www: false
+letsencrypt_force_renew: false
+letsencrypt_certbot_version: master
 ufw_rules:
   http:
     port: 80
