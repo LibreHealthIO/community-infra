@@ -1,4 +1,4 @@
-# from galaxy
+# from galaxy (keep alphabetical by role name)
 - src: geerlingguy.apache
   name: apache
 - src: geerlingguy.composer
