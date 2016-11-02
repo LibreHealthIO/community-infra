@@ -26,13 +26,13 @@ apache_vhosts:
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
     extra_parameters: |
+      Redirect permanent / https://ehr.librehealth.io
       <Location /server-status>
          SetHandler server-status
          Allow from 127.0.0.1
          Deny from all
       </Location>
-      Redirect permanent / https://ehr.librehealth.io
-        <Directory "/opt/ehr">
+      <Directory "/opt/ehr">
             AllowOverride FileInfo
         </Directory>
         <Directory "/opt/ehr/sites">
