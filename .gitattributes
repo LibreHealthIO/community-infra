@@ -1,2 +1,3 @@
 ansible/datadog.yml filter=git-crypt diff=git-crypt
 gitlab_ci_keys/* filter=git-crypt diff=git-crypt
+docker-compose.yml filter=git-crypt diff=git-crypt
