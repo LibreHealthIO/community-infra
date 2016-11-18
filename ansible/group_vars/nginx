@@ -1,0 +1,4 @@
+nginx_ppa_use: true
+nginx_ppa_version: stable
+nginx_remove_default_vhost: true
+nginx_vhosts_filename: "vhosts.conf"

@@ -5,10 +5,6 @@ letsencrypt_force_renew: false
 letsencrypt_pause_services:
   - nginx
 
-nginx_ppa_use: true
-nginx_ppa_version: stable
-nginx_remove_default_vhost: true
-nginx_vhosts_filename: "vhosts.conf"
 nginx_vhosts:
 - listen: "80 default_server"
   server_name: "toolkit.librehealth.io"
@@ -44,20 +40,6 @@ nginx_vhosts:
         deny all;
     }
 
-java_packages:
-  - openjdk-8-jre-headless
-
-tomcat_version: 8
-tomcat_port: 8080
-tomcat_control_port: 8005
-tomcat_catalina_home: "/usr/share/tomcat{{tomcat_version}}"
-tomcat_catalina_base: "/var/lib/tomcat{{tomcat_version}}"
-tomcat_java_opts: -Djava.awt.headless=true -Xmx4096m  -Xms1024m -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC
-tomcat_catalina_opts:
-option_tomcat_admin_install: false
-option_tomcat_user_install: false
-option_tomcat_native_install: true
-option_tomcat_mysql_jbdc_install: true
 datadog_checks:
   nginx:
     init_config:

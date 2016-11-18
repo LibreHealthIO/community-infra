@@ -1,4 +1,7 @@
 ---
+letsencrypt_domain: ehr.librehealth.io
+letsencrypt_pause_services:
+  - apache2
 
 users:
  tony:
@@ -13,13 +16,6 @@ users:
 
 
 apache_listen_ip: "69.195.153.59"
-apache_listen_port: 80
-apache_listen_port_ssl: 443
-apache_create_vhosts: true
-apache_vhosts_filename: "vhosts.conf"
-apache_remove_default_vhost: true
-apache_global_vhost_settings: |
-  DirectoryIndex index.php index.html
 apache_vhosts:
   # Additional properties: 'serveradmin, serveralias, extra_parameters'.
   - servername: "ehr.librehealth.io"
@@ -55,32 +51,7 @@ apache_mods_enabled:
   - rewrite.load
   - php7.0.load
   - status.load
-php_enable_webserver: false
-php_max_input_vars: "3000"
-php_short_open_tag: true
-php_max_input_time: "90"
 
-php_packages:
-  - php7.0-common
-  - php7.0-cli
-  - php7.0-dev
-  - php7.0-fpm
-  - libpcre3-dev
-  - php7.0-gd
-  - php7.0-curl
-  - php7.0-imap
-  - php7.0-json
-  - php7.0-opcache
-  - php7.0-xml
-  - php7.0-mbstring
-  - php7.0-mcrypt
-  - php7.0-soap
-
-letsencrypt_domain: ehr.librehealth.io
-letsencrypt_email: infrastructure@librehealth.io
-letsencrypt_force_renew: false
-letsencrypt_pause_services:
-  - apache2
 datadog_checks:
   apache:
     init_config:
