@@ -1,0 +1,7 @@
+apache_listen_port: 80
+apache_listen_port_ssl: 443
+apache_create_vhosts: true
+apache_vhosts_filename: "vhosts.conf"
+apache_remove_default_vhost: true
+apache_global_vhost_settings: |
+  DirectoryIndex index.php index.html

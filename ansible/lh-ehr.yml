@@ -1,6 +1,6 @@
 - include: common.yml
 - hosts: ehr
-  name: Libre EHR Play
+  name: LibreHealth EHR Play
   become: yes
   become_user: root
   roles:
