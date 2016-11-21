@@ -1,7 +1,7 @@
 - include: common.yml
 
 - hosts: tomcat
-  name: LibreHealth Toolkit/Radiology Play
+  name: LibreHealth Tomcat Play
   become: yes
   become_user: root
   roles:
