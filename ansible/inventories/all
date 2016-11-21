@@ -21,6 +21,9 @@ radiology.librehealth.io
 [php]
 ehr.librehealth.io
 
+[radiology]
+radiology.librehealth.io
+
 [tomcat]
 toolkit.librehealth.io
 radiology.librehealth.io
