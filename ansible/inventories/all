@@ -1,6 +1,12 @@
 [apache]
 ehr.librehealth.io
 
+[datadog]
+chat.librehealth.io
+ehr.librehealth.io
+forums.librehealth.io
+toolkit.librehealth.io
+
 [discourse]
 forums.librehealth.io
 

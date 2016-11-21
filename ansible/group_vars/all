@@ -34,7 +34,7 @@ ufw_rules:
 docker_compose_version: 1.8.0
 # datadog checks
 datadog_checks:
-  docker:
+  docker_daemon:
     init_config:
     instances:
     - url: "unix://var/run/docker.sock"
