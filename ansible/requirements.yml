@@ -15,10 +15,8 @@
   name: java
 - src: geerlingguy.php
   name: php
-- src: git@github.com:robbyoconnor/ansible-letsencrypt.git
-  scm: git
+- src: jaywink.letsencrypt
   name: letsencrypt
-  version: make-args-more-flexible
 - src: geerlingguy.nginx
   name: nginx
 - src: softasap.sa-tomcat
