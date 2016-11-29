@@ -1,4 +1,8 @@
 ---
+letsencrypt_domain: chat.librehealth.io
+letsencrypt_pause_services:
+  - nginx
+
 datadog_checks:
   nginx:
     init_config:
