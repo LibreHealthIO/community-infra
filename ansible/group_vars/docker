@@ -1,0 +1,11 @@
+---
+docker_dns_resolvers :
+ - '8.8.8.8'
+ - '8.8.4.4'
+
+docker_remote: False
+docker_tls: False
+
+docker_storage_driver: overlay2
+
+docker_compose_version: 1.8.0

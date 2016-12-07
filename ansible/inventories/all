@@ -10,6 +10,11 @@ toolkit.librehealth.io
 [discourse]
 forums.librehealth.io
 
+[docker]
+chat.librehealth.io
+ehr.librehealth.io
+toolkit.librehealth.io
+
 [ehr]
 ehr.librehealth.io
 
