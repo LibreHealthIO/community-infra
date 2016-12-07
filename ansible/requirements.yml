@@ -5,7 +5,7 @@
   name: composer
 - src: Datadog.datadog
   name: datadog
-- src: franklinkim.docker
+- src: andrewrothstein.docker
   name: docker
 - src: michaelcontento.docker-compose
   name: docker-compose

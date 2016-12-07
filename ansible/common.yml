@@ -11,8 +11,13 @@
     - sudo
     - sshd
     - ufw
-    - docker
-    - docker-compose
     # - ntp
     # - timezone
     - crontab
+
+- hosts: docker
+  become: yes
+  become_user: root
+  roles:
+    - docker
+    - docker-compose
