@@ -2,6 +2,7 @@
 # common playbook
 
 - include: datadog.yml
+- include: postgres.yml
 - hosts: all
   name: Common Play
   become: yes

@@ -40,6 +40,9 @@ toolkit.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
+[postgresql]
+toolkit.librehealth.io
+
 [www]
 chat.librehealth.io
 ehr.librehealth.io
