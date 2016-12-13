@@ -1,3 +1,4 @@
+---
 apache_listen_port: 80
 apache_listen_port_ssl: 443
 apache_create_vhosts: true
