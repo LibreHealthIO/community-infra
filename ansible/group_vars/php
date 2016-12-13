@@ -1,3 +1,4 @@
+---
 php_enable_webserver: false
 php_max_input_vars: "3000"
 php_short_open_tag: true
