@@ -1,4 +1,5 @@
 # from galaxy (keep alphabetical by role name)
+- src: andrewrothstein.curl # docker role depends
 - src: geerlingguy.apache
   name: apache
 - src: geerlingguy.composer
