@@ -21,5 +21,30 @@
   name: letsencrypt
 - src: geerlingguy.nginx
   name: nginx
+- src: andrewrothstein.sudoers
+  name: sudo
 - src: softasap.sa-tomcat
   name: tomcat
+
+# from git
+- src: git@github:yatesr/ansible-crontab.git
+  scm: git
+  name: crontab
+- src: git@github:yatesr/ansible-mysql.git
+  scm: git
+  name: mysql
+- src: git@github:yatesr/ntp.git
+  scm: git
+  name: ntp
+- src: git@github:yatesr/ansible-sshd.git
+  scm: git
+  name: sshd
+- src: git@github:yatesr/ansible-timezone.git
+  scm: git
+  name: timezone
+- src: git@github:yatesr/ansible-ufw.git
+  scm: git
+  name: ufw
+- src: git@github:yatesr/ansible-users.git
+  scm: git
+  name: users
