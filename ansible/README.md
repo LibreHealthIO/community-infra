@@ -33,7 +33,7 @@ Installs and configures [PostgreSQL][] for hosts that need it. This is only run 
 ### [Certbot][] Play (`certbot.yml`)
 Provisions and renews [Let's Encrypt SSL Certificates](https://letsencrypt.org) using [Certbot][]
 
-Installs Certbot if it is not installed on the server.
+Installs Certbot if it is not installed on the server. This is written to be run on its own as-needed (every 3 months).
 
 ### [LibreHealth EHR][] (`lh-ehr.yml`)
 This sets up and installs dependencies for [LibreHealth EHR][]
@@ -44,6 +44,9 @@ It installs Apache, [PHP](https://php.net), [Composer](https://getcomposer.org),
 ### [LibreHealth Toolkit][] / [LibreHealth Radiology][] (`lh-tomcat.yml`)
 This sets up and installs nginx, java, and tomcat.
 
+### Site-wide play which includes everything (`site.yml`)
+Includes all of the above. This is the we run.
+
 ## Requirements
 * This repo.
 * [ansible  2.1+ installed](http://docs.ansible.com/ansible/intro_installation.html) on the same machine the repo is cloned to.
@@ -51,34 +54,40 @@ This sets up and installs nginx, java, and tomcat.
 
 ## How to use this
 How this is run is dependent on what project you are working with.
+### To run for all hosts
+
+`ansible-playbook -i inventories/all site.yml`
 
 ### For [LibreHealth EHR][]
-`ansible-playbook -i inventory/all -l ehr lh-ehr.yml`
+
+`ansible-playbook -i inventories/all -l ehr site.yml`
 
 ### For [LibreHealth Toolkit][] / [LibreHealth Radiology][]
 
 #### [LibreHealth Radiology][]
-`ansible-playbook -i inventory/all -l radiology lh-tomcat.yml`
+
+`ansible-playbook -i inventories/all -l radiology site.yml`
 
 #### [LibreHealth Toolkit][]
-`ansible-playbook -i inventory/all -l toolkit lh-tomcat.yml`
+
+`ansible-playbook -i inventories/all -l toolkit site.yml`
 
 #### For Both [LibreHealth Toolkit][] and [LibreHealth Radiology][]
-`ansible-playbook -i inventory/all -l tomcat lh-tomcat.yml`
 
+`ansible-playbook -i inventories/all -l tomcat site.yml`
 
 ## Running example ad-hoc commands
 
 #### Update all packages playbook
 This will do a dry run of updating all packages on all servers
 
-`ansible-playbook -i inventory/all update.yml --check -v`
+`ansible-playbook -i inventories/all update.yml --check -v`
 
-When satisfied this will not breaking anything drop the `--check` and it will update all servers in the inventory.
+When satisfied this will not breaking anything drop the `--check` and it will update all servers in the inventories.
 
 #### Update a certain package to latest version
 
-`ansible -i inventory/all all -m apt -a "update_cache=yes name=openssl state=latest" --become`
+`ansible -i inventories/all all -m apt -a "update_cache=yes name=openssl state=latest" --become`
 
 This will only update the package to the latest version if it is already installed.  It will not install the openssl package on hosts that do not have it installed.
 
