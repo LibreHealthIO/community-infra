@@ -1,0 +1,3 @@
+# Site-wide play
+- include: lh-ehr.yml
+- include: lh-tomcat.yml
