@@ -9,11 +9,13 @@ toolkit.librehealth.io
 
 [discourse]
 forums.librehealth.io
+forums.rs.librehealth.io
 
 [docker]
 chat.librehealth.io
 ehr.librehealth.io
 toolkit.librehealth.io
+forums.rs.librehealth.io
 
 [ehr]
 ehr.librehealth.io
@@ -23,8 +25,17 @@ ehr.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
+
 [php]
 ehr.librehealth.io
+
+[proxmox]
+ehr.librehealth.io
+toolkit.librehealth.io
+radiology.librehealth.io
+
+[rackspace-iad]
+forums.rs.librehealth.io
 
 [radiology]
 radiology.librehealth.io
