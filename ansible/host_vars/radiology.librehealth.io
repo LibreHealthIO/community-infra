@@ -1,4 +1,10 @@
 ---
+users:
+ ivange94:
+   comment: Ivange Larry
+   groups: 'admin'
+   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2TCT52I9Ctiw3okZ9xeC1os8uSHhXtbsjh5C2FXkkWkH9muqstRZI8Z0jr6Fw+Xd9muR6eof4SCiOZFoeZU6pVtrEtbvOid9UzZnUhh3hRkqRigdq2S9NTla037iiLn/z1udhghYn5jEmmM7vFndiGR2u78nr3T3xoz2bHodgF7RvbF1Wk+n6nhJoLKOq6DxmKQDEALOJjCDZR3PxZYT5p3xifftPAqb8E0smE0nTnM07BlBg84duhyOgty6zyQaIZjXteO3m0aJFCWgDUQR8ybDCBF2gcpI6gEp0Cy9WMmC8ggWcbSx6LVVqRjCWBB2mKY79fyw3fEwyLXsAq2A9 ivange@Ivanges-MacBook-Pro-3.local"
+
 letsencrypt_domain: radiology.librehealth.io
 letsencrypt_email: infrastructure@librehealth.io
 letsencrypt_force_renew: false
