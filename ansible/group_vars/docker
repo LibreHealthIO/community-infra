@@ -1,5 +1,5 @@
 ---
-docker_dns_resolvers :
+docker_dns_resolvers:
  - '8.8.8.8'
  - '8.8.4.4'
 
