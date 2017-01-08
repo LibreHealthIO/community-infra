@@ -6,6 +6,12 @@ There are files which are encrypted using [git-crypt][], in order to work with t
 
 Ansible will not work with the files in an encrypted state.
 
+# Get started and stuff
+
+`ansible-galaxy install -p roles -r requirements.yml`
+
+This assumes you are in the `ansible` directory where this README resides
+
 ## Our Plays
 
 
