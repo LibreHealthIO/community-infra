@@ -1,5 +1,3 @@
-- include: common.yml
-
 - hosts: tomcat
   name: LibreHealth Tomcat Play
   become: yes
