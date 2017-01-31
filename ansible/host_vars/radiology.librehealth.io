@@ -4,6 +4,10 @@ users:
    comment: Ivange Larry
    groups: 'admin'
    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2TCT52I9Ctiw3okZ9xeC1os8uSHhXtbsjh5C2FXkkWkH9muqstRZI8Z0jr6Fw+Xd9muR6eof4SCiOZFoeZU6pVtrEtbvOid9UzZnUhh3hRkqRigdq2S9NTla037iiLn/z1udhghYn5jEmmM7vFndiGR2u78nr3T3xoz2bHodgF7RvbF1Wk+n6nhJoLKOq6DxmKQDEALOJjCDZR3PxZYT5p3xifftPAqb8E0smE0nTnM07BlBg84duhyOgty6zyQaIZjXteO3m0aJFCWgDUQR8ybDCBF2gcpI6gEp0Cy9WMmC8ggWcbSx6LVVqRjCWBB2mKY79fyw3fEwyLXsAq2A9 ivange@Ivanges-MacBook-Pro-3.local"
+   gichoya:
+     comment: Judy Gichoya
+     groups: 'admin'
+     ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDXi332kbAiyAdzIOdy8HEOF9gmN290X7HAlSq5/jzBQrauHDnNT7Z1Ktkhj+k8K3jsvQuZcHkIvVG8BXvDVkep8yzQvRPuMweWvYD58ImejRo0f9roz8TfhHxNWl2IY+QtNmR8DZ8EU2MRqNgdNcMqoDY7KVqfWaB2NRTiinigEMDLOCr4793tJX2yHN7DnqfzJh6gk0xsLD3/BXMbVwH44Y/WrgX4PTPdVmpxDYU2bywZd1ziVk9/fY4Pql0k4Eu6drQ5XxH7oSkDLRgBGbzCBKp/hc6IuW8F+36u1mU6Y7Wk4yYNAgHAsbMWbjBEGVqyYjVkXMUSsHhHL/kWnLJ judywawira@gmail.com"
 
 letsencrypt_domain: radiology.librehealth.io
 letsencrypt_email: infrastructure@librehealth.io
