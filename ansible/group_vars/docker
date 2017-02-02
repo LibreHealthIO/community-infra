@@ -3,9 +3,15 @@ docker_dns_resolvers:
  - '8.8.8.8'
  - '8.8.4.4'
 
+docker_compose_version: 1.10.0
+docker_storage_driver: overlay2
 docker_remote: False
 docker_tls: False
 
-docker_storage_driver: overlay2
-
-docker_compose_version: 1.9.0
+# https://docs.docker.com/engine/installation/linux/ubuntulinux/#/enable-ufw-forwarding
+ufw_config:
+  globalconfig:
+    direction: "routed"
+    logging: "off"
+    policy: allow
+    state: enabled

@@ -1,3 +1,4 @@
 # Site-wide play
+- include: common.yml
 - include: lh-ehr.yml
 - include: lh-tomcat.yml
