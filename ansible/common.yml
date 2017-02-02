@@ -14,7 +14,7 @@
     - ufw
     # - ntp
     # - timezone
-    - crontab
+    # - crontab
 
 - hosts: docker
   become: yes
