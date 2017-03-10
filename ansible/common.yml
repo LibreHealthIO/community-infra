@@ -13,7 +13,7 @@
     - sshd
     - ufw
     # - ntp
-    # - timezone
+    - timezone
     # - crontab
 
 - hosts: docker
@@ -22,3 +22,14 @@
   roles:
     - docker
     - docker-compose
+  tags:
+    - runner
+    - docker
+
+# - hosts: ci-runners
+#   become: yes
+#   become_user: root
+#   roles:
+#     - gitlab-ci-multi-runner
+#   tags:
+#     - runner

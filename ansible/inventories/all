@@ -1,6 +1,9 @@
 [apache]
 ehr.librehealth.io
 
+[ci-runners]
+ci-runner-rackspace-dfw.librehealth.io
+
 [datadog]
 chat.librehealth.io
 ehr.librehealth.io
@@ -18,6 +21,7 @@ toolkit.librehealth.io
 forums.librehealth.io
 forums.rs.librehealth.io
 radiology.librehealth.io
+ci-runner-rackspace-dfw.librehealth.io
 
 [ehr]
 ehr.librehealth.io
@@ -26,7 +30,6 @@ ehr.librehealth.io
 ehr.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
-
 
 [php]
 ehr.librehealth.io
@@ -38,6 +41,9 @@ radiology.librehealth.io
 
 [rackspace-iad]
 forums.rs.librehealth.io
+
+[rackspace-dfw]
+ci-runner-rackspace-dfw.librehealth.io
 
 [radiology]
 radiology.librehealth.io
