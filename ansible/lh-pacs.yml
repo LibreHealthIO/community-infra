@@ -1,0 +1,7 @@
+- include: common.yml
+- hosts: pacs
+  name: LibreHealth PACS Play
+  become: yes
+  become_user: root
+  roles:
+    - nginx
