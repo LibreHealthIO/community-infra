@@ -15,13 +15,14 @@ forums.librehealth.io
 forums.rs.librehealth.io
 
 [docker]
+ci-runner-rackspace-dfw.librehealth.io
 chat.librehealth.io
 ehr.librehealth.io
 toolkit.librehealth.io
 forums.librehealth.io
 forums.rs.librehealth.io
 radiology.librehealth.io
-ci-runner-rackspace-dfw.librehealth.io
+pacs.librehealth.io
 
 [ehr]
 ehr.librehealth.io
@@ -30,6 +31,9 @@ ehr.librehealth.io
 ehr.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
+
+[pacs]
+pacs.librehealth.io
 
 [php]
 ehr.librehealth.io
@@ -45,7 +49,11 @@ forums.rs.librehealth.io
 [rackspace-dfw]
 ci-runner-rackspace-dfw.librehealth.io
 
+[rackspace-hkg]
+pacs.librehealth.io
+
 [radiology]
+pacs.librehealth.io
 radiology.librehealth.io
 
 [tomcat]
@@ -56,8 +64,9 @@ radiology.librehealth.io
 toolkit.librehealth.io
 
 [nginx]
-toolkit.librehealth.io
 radiology.librehealth.io
+toolkit.librehealth.io
+pacs.librehealth.io
 
 [postgresql]
 toolkit.librehealth.io
@@ -65,5 +74,6 @@ toolkit.librehealth.io
 [www]
 chat.librehealth.io
 ehr.librehealth.io
+pacs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
