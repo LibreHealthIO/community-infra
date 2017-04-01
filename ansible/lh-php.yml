@@ -1,7 +1,8 @@
-- hosts: ehr
-  name: LibreHealth EHR Play
+---
+
+- hosts: php
   become: yes
-  become_user: root
+  name: LibreHealth PHP Play
   roles:
     - apache
     - php

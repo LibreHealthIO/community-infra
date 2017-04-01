@@ -1,0 +1,7 @@
+---
+
+- hosts: nginx
+  name: LibreHealth nginx play
+  become: yes
+  roles:
+    - nginx

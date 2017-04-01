@@ -3,7 +3,6 @@
   become: yes
   become_user: root
   roles:
-    - nginx
     - java
     - tomcat
   tasks:

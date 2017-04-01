@@ -2,9 +2,9 @@
 # common playbook
 
 - include: datadog.yml
-- include: postgres.yml
+- include: lh-postgres.yml
 - hosts: all
-  name: Common Play
+  name: LibreHealth Common Play
   become: yes
   become_user: root
   roles:
@@ -15,16 +15,6 @@
     # - ntp
     - timezone
     # - crontab
-
-- hosts: docker
-  become: yes
-  become_user: root
-  roles:
-    - docker
-    - docker-compose
-  tags:
-    - runner
-    - docker
 
 # - hosts: ci-runners
 #   become: yes

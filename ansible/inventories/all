@@ -1,6 +1,3 @@
-[apache]
-ehr.librehealth.io
-
 [ci-runners]
 ci-runner-rackspace-dfw.librehealth.io
 
@@ -32,11 +29,21 @@ ehr.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
+[lamp]
+ehr.librehealth.io
+
+[nginx]
+chat.librehealth.io
+radiology.librehealth.io
+toolkit.librehealth.io
+pacs.librehealth.io
+
 [pacs]
 pacs.librehealth.io
 
-[php]
-ehr.librehealth.io
+[postgresql]
+pacs.librehealth.io
+toolkit.librehealth.io
 
 [proxmox]
 ehr.librehealth.io
@@ -61,15 +68,6 @@ toolkit.librehealth.io
 radiology.librehealth.io
 
 [toolkit]
-toolkit.librehealth.io
-
-[nginx]
-radiology.librehealth.io
-toolkit.librehealth.io
-pacs.librehealth.io
-
-[postgresql]
-pacs.librehealth.io
 toolkit.librehealth.io
 
 [www]

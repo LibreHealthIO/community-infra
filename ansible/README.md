@@ -15,7 +15,7 @@ This assumes you are in the `ansible` directory where this README resides
 ## Our Plays
 
 
-### Common Play (`common.yml`)
+### Common Play (`lh-common.yml`)
 This play runs the following roles which are common with all servers, regardless of the Tech Stack used. All plays include this.
 
 This includes:
@@ -24,7 +24,6 @@ This includes:
 - installing sudo
 - installing sshd
 - configuring ufw
-- install [docker](https://docs.docker.com/engine/)/[docker-compose](https://docs.docker.com/compose/)
 - configuring ntp for clock synchronization
 - setting the timezone (UTC)
 
@@ -33,7 +32,7 @@ Installs the [datadog agent](https://datadog.com) and setting up checks. This is
 
 This play is encrypted.
 
-### [PostgreSQL][] Play (`postgres.yml`) (included in the Common Play)
+### [PostgreSQL][] Play (`lh-postgres.yml`) (included in the Common Play)
 Installs and configures [PostgreSQL][] for hosts that need it. This is only run if needed on the given host. It is included in the Common Play.
 
 ### [Certbot][] Play (`certbot.yml`)
@@ -41,17 +40,21 @@ Provisions and renews [Let's Encrypt SSL Certificates](https://letsencrypt.org) 
 
 Installs Certbot if it is not installed on the server. This is written to be run on its own as-needed (every 3 months).
 
-### [LibreHealth EHR][] (`lh-ehr.yml`)
-This sets up and installs dependencies for [LibreHealth EHR][]
+### [nginx][] Play (`lh-nginx.yml`)
+Installs and configures nginx
 
-It installs Apache, [PHP](https://php.net), [Composer](https://getcomposer.org), and [Imagemagick](https://www.imagemagick.org/script/index.php).
+### [LibreHealth EHR][] / [PHP][] Play (`lh-php.yml`)
+Installs Apache, [PHP](https://php.net), [Composer](https://getcomposer.org), and [Imagemagick](https://www.imagemagick.org/script/index.php).
 
+### [Docker][] play (`lh-docker.yml`)
+installs [docker](https://docs.docker.com/engine/)/[docker-compose](https://docs.docker.com/compose/)
 
 ### [LibreHealth Toolkit][] / [LibreHealth Radiology][] (`lh-tomcat.yml`)
-This sets up and installs nginx, java, and tomcat.
+This sets up and installs java, and tomcat.
+
 
 ### Site-wide play which includes everything (`site.yml`)
-Includes all of the above. This is the we run.
+Includes all of the above(except `cerbot.yml` and `update.yml`). This is the we run.
 
 ## Requirements
 * This repo.
@@ -99,7 +102,8 @@ This will only update the package to the latest version if it is already install
 
 [Certbot]: https://certbot.eff.org
 [git-crypt]: https://github.com/AGWA/git-crypt
-[LibreHealth EHR]: https://librehealth.io/projects/lh-ehr/
+[LibreHealth EHR]: https://librehealth.io/projects/lh-ehr
 [LibreHealth Radiology]: https://librehealth.io/projects/lh-radiology
 [LibreHealth Toolkit]: https://librehealth.io/projects/lh-toolkit
 [PostgreSQL]: https://www.postgresql.org
+[Docker]: https://docs.docker.com
