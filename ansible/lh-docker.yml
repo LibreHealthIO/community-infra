@@ -1,0 +1,7 @@
+- hosts: docker
+  name: LibreHealth Docker play
+  become: yes
+  become_user: root
+  roles:
+    - docker
+    - docker-compose
