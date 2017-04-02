@@ -12,6 +12,34 @@ Ansible will not work with the files in an encrypted state.
 
 This assumes you are in the `ansible` directory where this README resides
 
+## Unlocking [git-crypt][] encrypted files
+
+### Install [git-crypt][]
+
+Assuming you have given us your key, then you can simply do [follow these instructions](https://raw.githubusercontent.com/AGWA/git-crypt/master/INSTALL.md)
+
+### Unlocking (it's a one-time thing)
+```sh
+$ git-crypt unlock
+```
+
+Enter your key passphrase and it should unlock for you -- beyond that -- everything is done transparently, no work is necessary on your part.
+
+### Locking (you will need to unlock before ansible even runs!)
+
+To relock it
+```sh
+$ git-crypt lock
+```
+### Check Status of what's encrypted:
+
+```sh
+$ git-crypt status
+```
+**PLEASE AVOID RUNNING `git-crypt init`!!**
+
+For a list of files which are encrypted you can check out `.gitattributes` in the root of this repository.
+
 ## Our Plays
 
 
@@ -107,3 +135,5 @@ This will only update the package to the latest version if it is already install
 [LibreHealth Toolkit]: https://librehealth.io/projects/lh-toolkit
 [PostgreSQL]: https://www.postgresql.org
 [Docker]: https://docs.docker.com
+[PHP]: https://php.net
+[nginx]: https://nginx.com
