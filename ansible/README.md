@@ -97,21 +97,17 @@ How this is run is dependent on what project you are working with.
 
 ### For [LibreHealth EHR][]
 
-`ansible-playbook -i inventories/all -l ehr site.yml`
+`ansible-playbook -i inventories/all -l ehr.librehealth.io site.yml`
 
 ### For [LibreHealth Toolkit][] / [LibreHealth Radiology][]
 
 #### [LibreHealth Radiology][]
 
-`ansible-playbook -i inventories/all -l radiology site.yml`
+`ansible-playbook -i inventories/all -l radiology.librehealth.io site.yml`
 
 #### [LibreHealth Toolkit][]
 
-`ansible-playbook -i inventories/all -l toolkit site.yml`
-
-#### For Both [LibreHealth Toolkit][] and [LibreHealth Radiology][]
-
-`ansible-playbook -i inventories/all -l tomcat site.yml`
+`ansible-playbook -i inventories/all -l toolkit.librehealth.io site.yml`
 
 ## Running example ad-hoc commands
 
