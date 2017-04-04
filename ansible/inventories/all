@@ -28,7 +28,7 @@ ehr.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
-[lamp]
+[php]
 ehr.librehealth.io
 
 [nginx]
