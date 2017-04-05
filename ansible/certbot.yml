@@ -6,4 +6,5 @@
   become: yes
   become_user: root
   roles:
+    - dhparam
     - letsencrypt
