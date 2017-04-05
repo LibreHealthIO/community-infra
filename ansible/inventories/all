@@ -1,3 +1,7 @@
+[apache]
+ehr.librehealth.io
+ehr.rs.librehealth.io
+
 [ci-runners]
 ci-runner-rackspace-dfw.librehealth.io
 
@@ -75,6 +79,7 @@ toolkit.librehealth.io
 chat.librehealth.io
 chat.rs.librehealth.io
 ehr.librehealth.io
+ehr.rs.librehealth.io
 pacs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
