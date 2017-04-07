@@ -16,8 +16,6 @@
   name: gitlab-ci-multi-runner
 - src: zerohacks.imagemagick
   name: imagemagick
-- src: geerlingguy.java
-  name: java
 - src: geerlingguy.php
   name: php
 - src: grim-fendango.postgresql

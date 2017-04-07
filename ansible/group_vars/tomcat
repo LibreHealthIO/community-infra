@@ -1,10 +1,9 @@
 ---
-java_packages:
-  - openjdk-8-jre-headless
-
-tomcat_version: 8
-tomcat_port: 8080
-tomcat_control_port: 8005
+java_version: "8"
+option_install_java: true
+tomcat_version: "8"
+tomcat_port: "8080"
+tomcat_control_port: "8005"
 tomcat_catalina_home: "/usr/share/tomcat{{tomcat_version}}"
 tomcat_catalina_base: "/var/lib/tomcat{{tomcat_version}}"
 tomcat_java_opts: -Djava.awt.headless=true -Xmx4096m  -Xms1024m -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC

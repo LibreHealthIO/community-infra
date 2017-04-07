@@ -3,7 +3,6 @@
   become: yes
   become_user: root
   roles:
-    - java
     - tomcat
   tasks:
     - name: Adding existing ci user to tomcat group
