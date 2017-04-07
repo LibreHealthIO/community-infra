@@ -2,6 +2,15 @@
 letsencrypt_domain: ehr.rs.librehealth.io
 letsencrypt_pause_services:
   - apache2
+letsencrypt_certbot_default_args:
+  - --apache
+  - --expand
+  - --text
+  - -n
+  - --no-self-upgrade
+  - -d 'ehr.rs.librehealth.io'
+  - -m 'infrastructure@librehealth.io'
+  - --agree-tos
 
 users:
  tony:

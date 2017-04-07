@@ -6,3 +6,12 @@ apache_vhosts_filename: "vhosts.conf"
 apache_remove_default_vhost: true
 apache_global_vhost_settings: |
   DirectoryIndex index.php index.html
+letsencrypt_certbot_default_args:
+  - --apache
+  - --expand
+  - --text
+  - -n
+  - --no-self-upgrade
+  - --domains '{{ _letsencrypt_domains | default(letsencrypt_domain) }}
+  - -m '{{letsencrypt_email}}'
+  - --agree-tos
