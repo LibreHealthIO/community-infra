@@ -1,16 +1,7 @@
 ---
-letsencrypt_domain: ehr.rs.librehealth.io
+letsencrypt_domain: ehr.rs.librehealth.io,nhanes.rs.librehealth.io
 letsencrypt_pause_services:
   - apache2
-letsencrypt_certbot_default_args:
-  - --apache
-  - --expand
-  - --text
-  - -n
-  - --no-self-upgrade
-  - -d 'ehr.rs.librehealth.io'
-  - -m 'infrastructure@librehealth.io'
-  - --agree-tos
 
 users:
  tony:
@@ -22,16 +13,19 @@ users:
    comment: Art Eaton
    groups: 'admin'
    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAo1+hEV63gF2dEjRiOzfWzzMlPOukW5imQq2N S+Z0TrZ9i73vNqkPF8O081LvBfcaYAnXfdfBACxGpGOJ05wM+M+W5nuG/Wx9isZv 7T8kYhWBBxuKf0Cr3f1EDcSd//MOekiJKIG4UHsZo9krAJD6pcstDH+IALL4EWL2 WC8TJSAEZ6vJ5CuuwKPGG/bD5ix5KuDWhhQHMwuNcFgfIh9bz/JZeqcvalxx4oNO n6fms13mi0IQOOZUGSNjmE7lKN/KkrjtMORkYINq8w1sEfcc4HovdW06nj/djkj1 XXksiyvVFix4te6Nj8pKWIWV1ci3WKuuhvFeqr0F6wmpiwYyUw== art@starfrontiers.org"
-
+ yehster:
+   comment: Kevin Yeh
+   groups: 'admin'
+   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAgHZTqZAFnreLSsn385npe8WM+ZdpH3qGbQMIDU1+5lbslZbsSjcPtYHiHzPdnV5xaDW15Xeh0LCW5r10jBuxGMoS1S2+w0nTeYDIjyKK5KXVX6sPvtyn3DpnSXBjwxo7VUvHVIAQKV0MyhCfno6r3C3+CdZSxtgre46qv2Ng0F9RFJpA4xMYnBTkVSm9KcsQHjiXgo5GUfn7v7HWAMJYISDLKunH24ZBJ+7NmP6XYUw0S6/VojnOgnJnIjJRwELao/COiqwbq6m3ASD5slHDw6q4a/eA/egxnOXd2bdas8J+KmjaW0tHS6i772JJn6/JtuJXzIbTEUw5WOgF32+Wgw== rsa-key-20170420"
 
 apache_listen_ip: "146.20.105.138"
-apache_vhosts:
-  # Additional properties: 'serveradmin, serveralias, extra_parameters'.
-  - servername: "ehr.rs.librehealth.io"
+apache_vhosts_ssl:
+  - servername: "ehr.librehealth.io"
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
+    certificate_file: "/etc/letsencrypt/live/ehr.librehealth.io/fullchain.pem"
+    certificate_key_file: "/etc/letsencrypt/live/ehr.librehealth.io/privkey.pem"
     extra_parameters: |
-      Redirect permanent / https://ehr.rs.librehealth.io
       <Location /server-status>
          SetHandler server-status
          Allow from 127.0.0.1
@@ -55,7 +49,46 @@ apache_vhosts:
             order deny,allow
             Deny from all
         </Directory>
-
+  - servername: "nhanes.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
+    documentroot: "/opt/nhanes"
+    certificate_file: "/etc/letsencrypt/live/nhanes.librehealth.io/fullchain.pem"
+    certificate_key_file: "/etc/letsencrypt/live/nhanes.librehealth.io/privkey.pem"
+    extra_parameters: |
+      <Location /server-status>
+         SetHandler server-status
+         Allow from 127.0.0.1
+         Deny from all
+      </Location>
+      <Directory "/opt/nhanes">
+            AllowOverride FileInfo
+        </Directory>
+        <Directory "/opt/nhanes/sites">
+            AllowOverride None
+        </Directory>
+        <Directory "/opt/nhanes/sites/*/documents">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/nhanes/sites/*/edi">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/nhanes/sites/*/era">
+            order deny,allow
+            Deny from all
+        </Directory>
+apache_vhosts:
+  - servername: "ehr.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
+    documentroot: "/opt/ehr"
+    extra_parameters: |
+      Redirect permanent / https://ehr.librehealth.io
+  - servername: "nhanes.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
+    documentroot: "/opt/nhanes"
+    extra_parameters: |
+      Redirect permanent / https://nhanes.librehealth.io
 apache_mods_enabled:
   - rewrite.load
   - php7.0.load
