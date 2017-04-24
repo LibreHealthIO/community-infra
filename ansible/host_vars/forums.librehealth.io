@@ -1,6 +1,6 @@
 ---
 
-docker_storage_driver: aufs
+docker_storage_driver: overlay2
 
 ufw_rules:
   http:
