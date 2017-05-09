@@ -60,6 +60,9 @@ apache_vhosts_ssl:
          Allow from 127.0.0.1
          Deny from all
       </Location>
+      <Directory "/opt/nhanes/download/">
+         Options +Indexes
+      </Directory>
       <Directory "/opt/nhanes">
             AllowOverride FileInfo
         </Directory>
