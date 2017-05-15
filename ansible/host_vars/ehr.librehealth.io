@@ -17,6 +17,9 @@ users:
    comment: Kevin Yeh
    groups: 'admin'
    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAgHZTqZAFnreLSsn385npe8WM+ZdpH3qGbQMIDU1+5lbslZbsSjcPtYHiHzPdnV5xaDW15Xeh0LCW5r10jBuxGMoS1S2+w0nTeYDIjyKK5KXVX6sPvtyn3DpnSXBjwxo7VUvHVIAQKV0MyhCfno6r3C3+CdZSxtgre46qv2Ng0F9RFJpA4xMYnBTkVSm9KcsQHjiXgo5GUfn7v7HWAMJYISDLKunH24ZBJ+7NmP6XYUw0S6/VojnOgnJnIjJRwELao/COiqwbq6m3ASD5slHDw6q4a/eA/egxnOXd2bdas8J+KmjaW0tHS6i772JJn6/JtuJXzIbTEUw5WOgF32+Wgw== rsa-key-20170420"
+ rhoyt:
+   comment: Bob Hoyt
+   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMNicMI9js8b3ULYI/UrHIW6nOTVvS67wylBH36/SmFzBzydrlzoSPy2RW2jCedYnm9ScVetNcsHISjM0LwgiTFwhNQgASex+oIvuU+fGIPJ60xyfhGuq1qIDN08J9kVIcjHOB+KerNhA//V3dwXTgGCJtpaCO7o6cT5nbErOS1aU3H9Ovjcy+pBDE+DH8NII86y6h6HSdFlGx+PsiYOHetKWHwcCh4aLSY8YJOyEeWRGhqrYrO5c1JZ/biLyTtIILQOaEMn0jDi3OM9GKi3k4YDb1TJBcpllH7WH4A5E+M8nJoa4bFpJX+D5yE6RY2Q1Kf/JoqFJon+j8g0tSO5CN roberthoyt@Roberts-MacBook-Air-2.local"
 
 apache_listen_ip: "69.195.153.59"
 apache_vhosts_ssl:
