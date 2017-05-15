@@ -34,6 +34,9 @@ ehr.rs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
+[java]
+ehr.librehealth.io
+
 [php]
 ehr.librehealth.io
 ehr.rs.librehealth.io
