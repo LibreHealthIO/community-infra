@@ -2,5 +2,6 @@
 - include: lh-common.yml
 - include: lh-php.yml
 - include: lh-docker.yml
+- include: lh-java.yml
 - include: lh-nginx.yml
 - include: lh-tomcat.yml
