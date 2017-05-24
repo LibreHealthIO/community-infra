@@ -11,3 +11,7 @@ ufw_rules:
     port: 443
     proto: tcp
     rule: allow
+  smtp:
+    port: 25
+    proto: tcp
+    rule: allow
