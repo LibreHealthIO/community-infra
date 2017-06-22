@@ -11,6 +11,9 @@ datadog_checks:
         ssl_validation: False
         tags:
           - instance:rocketchat
+datadog_config:
+  tags: "provider:digitalocean,location:ams,service:chat,ansible:partial,provisioner:manual"
+
 nginx_ppa_use: true
 nginx_ppa_version: stable
 nginx_remove_default_vhost: true
@@ -37,6 +40,12 @@ nginx_vhosts:
     ssl_stapling_verify on;
     add_header Strict-Transport-Security max-age=15768000;
     root /usr/share/nginx/html;
+    location /nginx_status {
+          stub_status on;
+          access_log off;
+          allow 127.0.0.1;
+          deny all;
+    }
     location / {
         proxy_pass http://localhost:3000/;
         proxy_http_version 1.1;

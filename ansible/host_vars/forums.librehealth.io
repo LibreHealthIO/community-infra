@@ -1,7 +1,5 @@
 ---
 
-docker_storage_driver: overlay2
-
 ufw_rules:
   http:
     port: 80
@@ -15,3 +13,6 @@ ufw_rules:
     port: 25
     proto: tcp
     rule: allow
+
+datadog_config:
+  tags: "provider:rackspace,location:iad,service:discourse,ansible:partial,provisioner:manual"

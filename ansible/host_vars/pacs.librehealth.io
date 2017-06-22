@@ -41,3 +41,19 @@ nginx_vhosts:
       add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
       add_header 'Access-Control-Allow-Origin' '*';
     }
+    location /nginx_status {
+          stub_status on;
+          access_log off;
+          allow 127.0.0.1;
+          deny all;
+      }
+datadog_config:
+  tags: "provider:rackspace,location:hkg,service:discourse,ansible:partial,provisioner:manual"
+datadog_checks:
+  nginx:
+    init_config:
+    instances:
+      - nginx_status_url: https://localhost/nginx_status/
+        ssl_validation: False
+        tags:
+          - instance:pacs

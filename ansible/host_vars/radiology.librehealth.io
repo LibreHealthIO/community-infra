@@ -62,3 +62,5 @@ datadog_checks:
         ssl_validation: False
         tags:
           - instance:radiology
+datadog_config:
+  tags: "provider:rackspace,location:iad,service:radiology,ansible:partial,provisioner:manual"

@@ -7,3 +7,5 @@ gitlab_multirunner:
       token: # ask for this.
       executor: docker
       docker_image: ubuntu:16.04
+datadog_config:
+  tags: "provider:rackspace,location:dfw,service:gitlab_ci_runner,ansible:full,provisioner:manual"

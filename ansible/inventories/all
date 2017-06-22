@@ -7,8 +7,11 @@ ci-runner-rackspace-dfw.librehealth.io
 
 [datadog]
 chat.librehealth.io
+ci-runner-rackspace-dfw.librehealth.io
 ehr.librehealth.io
 forums.librehealth.io
+radiology.librehealth.io
+pacs.librehealth.io
 toolkit.librehealth.io
 
 [discourse]
