@@ -55,10 +55,12 @@ This includes:
 - configuring ntp for clock synchronization
 - setting the timezone (UTC)
 
-### Datadog Play (`datadog.yml`) (included in the Common Play)
+### Datadog Play (`lh-datadog.yml`) (included in the Common Play)
 Installs the [datadog agent](https://datadog.com) and setting up checks. This is run first and is included in the Common Play.
 
-This play is encrypted.
+The `group_vars` file containing the api key (`group_vars/datadog/api_key`) is encrypted using [git-crypt][].  It will fail miserably without this.
+
+We made every attempt to keep things as open as possible. We are 100% transparent where possible.
 
 ### [PostgreSQL][] Play (`lh-postgres.yml`) (included in the Common Play)
 Installs and configures [PostgreSQL][] for hosts that need it. This is only run if needed on the given host. It is included in the Common Play.

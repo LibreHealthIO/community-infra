@@ -107,3 +107,6 @@ datadog_checks:
       - apache_status_url: http://localhost/server-status?auto
         tags:
           - instance:ehr
+
+datadog_config:
+  tags: "provider:proxmox,location:MCI,service:ehr,ansible:partial,provisioner:manual"

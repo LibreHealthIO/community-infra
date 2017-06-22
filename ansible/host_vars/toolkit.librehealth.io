@@ -48,3 +48,6 @@ datadog_checks:
         ssl_validation: False
         tags:
           - instance:toolkit
+
+datadog_config:
+  tags: "provider:rackspace,location:iad,service:toolkit,ansible:partial,provisioner:manual"

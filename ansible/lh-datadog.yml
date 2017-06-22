@@ -1,0 +1,10 @@
+- hosts: datadog
+  name: Datadog Play
+  become: yes
+  roles:
+    - datadog
+  tasks:
+    - name: Adding dd-agent to docker group
+      user: name='dd-agent'
+        groups='docker'
+        append=yes
