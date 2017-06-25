@@ -116,9 +116,9 @@ How this is run is dependent on what project you are working with.
 #### Update all packages playbook
 This will do a dry run of updating all packages on all servers
 
-`ansible-playbook -i inventories/all update.yml --check -v`
+`ansible-playbook -i inventories/all update.yml --check -vvvv`
 
-When satisfied this will not breaking anything drop the `--check` and it will update all servers in the inventories.
+When satisfied this will not break anything drop the `--check` and it will update all servers in the inventories.
 
 #### Update a certain package to latest version
 
