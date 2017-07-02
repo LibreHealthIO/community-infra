@@ -35,7 +35,9 @@ apache_vhosts_ssl:
          Deny from all
       </Location>
       <Directory "/opt/ehr">
-            AllowOverride FileInfo
+            Options Indexes FollowSymLinks
+            AllowOverride all
+            Require all granted
         </Directory>
         <Directory "/opt/ehr/sites">
             AllowOverride None
@@ -67,7 +69,9 @@ apache_vhosts_ssl:
          Options +Indexes
       </Directory>
       <Directory "/opt/nhanes">
-            AllowOverride FileInfo
+            Options Indexes FollowSymLinks
+            AllowOverride all
+            Require all granted
         </Directory>
         <Directory "/opt/nhanes/sites">
             AllowOverride None
