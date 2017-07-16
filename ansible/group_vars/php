@@ -20,4 +20,5 @@ php_packages:
   - php7.0-mbstring
   - php7.0-mcrypt
   - php7.0-soap
+  - php7.0-zip
   - libapache2-mod-php7.0
