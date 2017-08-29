@@ -1,5 +1,5 @@
 ---
-letsencrypt_domain: ehr.rs.librehealth.io,nhanes.rs.librehealth.io
+letsencrypt_domain: ehr.rs.librehealth.io
 letsencrypt_pause_services:
   - apache2
 
@@ -12,7 +12,7 @@ users:
  aethelwulffe:
    comment: Art Eaton
    groups: 'admin'
-   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAo1+hEV63gF2dEjRiOzfWzzMlPOukW5imQq2N S+Z0TrZ9i73vNqkPF8O081LvBfcaYAnXfdfBACxGpGOJ05wM+M+W5nuG/Wx9isZv 7T8kYhWBBxuKf0Cr3f1EDcSd//MOekiJKIG4UHsZo9krAJD6pcstDH+IALL4EWL2 WC8TJSAEZ6vJ5CuuwKPGG/bD5ix5KuDWhhQHMwuNcFgfIh9bz/JZeqcvalxx4oNO n6fms13mi0IQOOZUGSNjmE7lKN/KkrjtMORkYINq8w1sEfcc4HovdW06nj/djkj1 XXksiyvVFix4te6Nj8pKWIWV1ci3WKuuhvFeqr0F6wmpiwYyUw== art@starfrontiers.org"
+   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAo1+hEV63gF2dEjRiOzfWzzMlPOukW5imQq2NS+Z0TrZ9i73vNqkPF8O081LvBfcaYAnXfdfBACxGpGOJ05wM+M+W5nuG/Wx9isZv7T8kYhWBBxuKf0Cr3f1EDcSd//MOekiJKIG4UHsZo9krAJD6pcstDH+IALL4EWL2WC8TJSAEZ6vJ5CuuwKPGG/bD5ix5KuDWhhQHMwuNcFgfIh9bz/JZeqcvalxx4oNOn6fms13mi0IQOOZUGSNjmE7lKN/KkrjtMORkYINq8w1sEfcc4HovdW06nj/djkj1XXksiyvVFix4te6Nj8pKWIWV1ci3WKuuhvFeqr0F6wmpiwYyUw== art@starfrontiers.org"
  yehster:
    comment: Kevin Yeh
    groups: 'admin'
@@ -20,11 +20,11 @@ users:
 
 apache_listen_ip: "146.20.105.138"
 apache_vhosts_ssl:
-  - servername: "ehr.librehealth.io"
+  - servername: "ehr.rs.librehealth.io"
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
-    certificate_file: "/etc/letsencrypt/live/ehr.librehealth.io/fullchain.pem"
-    certificate_key_file: "/etc/letsencrypt/live/ehr.librehealth.io/privkey.pem"
+    certificate_file: "/etc/letsencrypt/live/ehr.rs.librehealth.io/fullchain.pem"
+    certificate_key_file: "/etc/letsencrypt/live/ehr.rs.librehealth.io/privkey.pem"
     extra_parameters: |
       <Location /server-status>
          SetHandler server-status
@@ -32,7 +32,12 @@ apache_vhosts_ssl:
          Deny from all
       </Location>
       <Directory "/opt/ehr">
-            AllowOverride FileInfo
+            Options Indexes FollowSymLinks
+            AllowOverride all
+            Require all granted
+        </Directory>
+        <Directory "/opt/ehr/downloads">
+          Options +Indexes
         </Directory>
         <Directory "/opt/ehr/sites">
             AllowOverride None
@@ -49,46 +54,40 @@ apache_vhosts_ssl:
             order deny,allow
             Deny from all
         </Directory>
-  - servername: "nhanes.librehealth.io"
-    serveradmin: infrastructure@librehealth.io
-    documentroot: "/opt/nhanes"
-    certificate_file: "/etc/letsencrypt/live/nhanes.librehealth.io/fullchain.pem"
-    certificate_key_file: "/etc/letsencrypt/live/nhanes.librehealth.io/privkey.pem"
-    extra_parameters: |
-      <Location /server-status>
-         SetHandler server-status
-         Allow from 127.0.0.1
-         Deny from all
-      </Location>
-      <Directory "/opt/nhanes">
-            AllowOverride FileInfo
-        </Directory>
-        <Directory "/opt/nhanes/sites">
-            AllowOverride None
-        </Directory>
-        <Directory "/opt/nhanes/sites/*/documents">
-            order deny,allow
-            Deny from all
-        </Directory>
-        <Directory "/opt/nhanes/sites/*/edi">
-            order deny,allow
-            Deny from all
-        </Directory>
-        <Directory "/opt/nhanes/sites/*/era">
-            order deny,allow
-            Deny from all
-        </Directory>
+        RewriteEngine On
+
+        # NHANES
+        RewriteRule ^/nhanes/?$     https://ehr.rs.librehealth.io/?site=nhanes [L,R]
+        RewriteRule ^/nhanes/(.*)$  https://ehr.rs.librehealth.io/$1?site=nhanes [L,R]
+
+        # Harrisburg University
+        RewriteRule ^/hu/?$     https://ehr.rs.librehealth.io/?site=hu [L,R]
+        RewriteRule ^/hu/(.*)$  https://ehr.rs.librehealth.io/$1?site=hu [L,R]
+
+        # Lake–Sumter State College
+        RewriteRule ^/lssc/?$     https://ehr.rs.librehealth.io/?site=lssc [L,R]
+        RewriteRule ^/lssc/(.*)$  https://ehr.rs.librehealth.io/$1?site=lssc [L,R]
+
+        # Northern Kentucky University
+        RewriteRule ^/nku/?$     https://ehr.rs.librehealth.io/?site=nku [L,R]
+        RewriteRule ^/nku/(.*)$  https://ehr.rs.librehealth.io/$1?site=nku [L,R]
+
+        # University of Maryland
+        RewriteRule ^/umd/?$     https://ehr.rs.librehealth.io/?site=umd [L,R]
+        RewriteRule ^/umd/(.*)$  https://ehr.rs.librehealth.io/$1?site=umd [L,R]
+
 apache_vhosts:
-  - servername: "ehr.librehealth.io"
+  - servername: "ehr.rs.librehealth.io"
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
     extra_parameters: |
-      Redirect permanent / https://ehr.librehealth.io
-  - servername: "nhanes.librehealth.io"
+      Redirect permanent / https://ehr.rs.librehealth.io
+  - servername: "nhanes.rs.librehealth.io"
     serveradmin: infrastructure@librehealth.io
-    documentroot: "/opt/nhanes"
+    documentroot: "/opt/ehr"
     extra_parameters: |
-      Redirect permanent / https://nhanes.librehealth.io
+      Redirect permanent / https://ehr.rs.librehealth.io/nhanes
+
 apache_mods_enabled:
   - rewrite.load
   - php7.0.load
@@ -101,3 +100,6 @@ datadog_checks:
       - apache_status_url: http://localhost/server-status?auto
         tags:
           - instance:ehr
+
+datadog_config:
+  tags: "provider:rackspace,location:IAD,service:ehr,ansible:partial,provisioner:manual"
