@@ -1,5 +1,5 @@
 ---
-letsencrypt_domain: ehr.librehealth.io,nhanes.librehealth.io
+letsencrypt_domain: ehr.librehealth.io
 letsencrypt_pause_services:
   - apache2
 
@@ -35,6 +35,9 @@ apache_vhosts_ssl:
             Options Indexes FollowSymLinks
             AllowOverride all
             Require all granted
+        </Directory>
+        <Directory "/opt/ehr/downloads">
+          Options +Indexes
         </Directory>
         <Directory "/opt/ehr/sites">
             AllowOverride None
@@ -73,40 +76,6 @@ apache_vhosts_ssl:
         RewriteRule ^/umd/?$     https://ehr.librehealth.io/?site=umd [L,R]
         RewriteRule ^/umd/(.*)$  https://ehr.librehealth.io/$1?site=umd [L,R]
 
-  - servername: "nhanes.librehealth.io"
-    serveradmin: infrastructure@librehealth.io
-    documentroot: "/opt/nhanes"
-    certificate_file: "/etc/letsencrypt/live/nhanes.librehealth.io/fullchain.pem"
-    certificate_key_file: "/etc/letsencrypt/live/nhanes.librehealth.io/privkey.pem"
-    extra_parameters: |
-      <Location /server-status>
-         SetHandler server-status
-         Allow from 127.0.0.1
-         Deny from all
-      </Location>
-      <Directory "/opt/nhanes/download/">
-         Options +Indexes
-      </Directory>
-      <Directory "/opt/nhanes">
-            Options Indexes FollowSymLinks
-            AllowOverride all
-            Require all granted
-        </Directory>
-        <Directory "/opt/nhanes/sites">
-            AllowOverride None
-        </Directory>
-        <Directory "/opt/nhanes/sites/*/documents">
-            order deny,allow
-            Deny from all
-        </Directory>
-        <Directory "/opt/nhanes/sites/*/edi">
-            order deny,allow
-            Deny from all
-        </Directory>
-        <Directory "/opt/nhanes/sites/*/era">
-            order deny,allow
-            Deny from all
-        </Directory>
 apache_vhosts:
   - servername: "ehr.librehealth.io"
     serveradmin: infrastructure@librehealth.io
@@ -115,9 +84,10 @@ apache_vhosts:
       Redirect permanent / https://ehr.librehealth.io
   - servername: "nhanes.librehealth.io"
     serveradmin: infrastructure@librehealth.io
-    documentroot: "/opt/nhanes"
+    documentroot: "/opt/ehr"
     extra_parameters: |
-      Redirect permanent / https://nhanes.librehealth.io
+      Redirect permanent / https://ehr.librehealth.io/nhanes
+
 apache_mods_enabled:
   - rewrite.load
   - php7.0.load
