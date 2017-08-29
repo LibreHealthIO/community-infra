@@ -54,6 +54,28 @@ apache_vhosts_ssl:
             order deny,allow
             Deny from all
         </Directory>
+        RewriteEngine On
+
+        # NHANES
+        RewriteRule ^/nhanes/?$     https://ehr.librehealth.io/?site=nhanes [L,R]
+        RewriteRule ^/nhanes/(.*)$  https://ehr.librehealth.io/$1?site=nhanes [L,R]
+
+        # Harrisburg University
+        RewriteRule ^/hu/?$     https://ehr.librehealth.io/?site=hu [L,R]
+        RewriteRule ^/hu/(.*)$  https://ehr.librehealth.io/$1?site=hu [L,R]
+
+        # Lake–Sumter State College
+        RewriteRule ^/lssc/?$     https://ehr.librehealth.io/?site=lssc [L,R]
+        RewriteRule ^/lssc/(.*)$  https://ehr.librehealth.io/$1?site=lssc [L,R]
+
+        # Northern Kentucky University
+        RewriteRule ^/nku/?$     https://ehr.librehealth.io/?site=nku [L,R]
+        RewriteRule ^/nku/(.*)$  https://ehr.librehealth.io/$1?site=nku [L,R]
+
+        # University of Maryland
+        RewriteRule ^/umd/?$     https://ehr.librehealth.io/?site=umd [L,R]
+        RewriteRule ^/umd/(.*)$  https://ehr.librehealth.io/$1?site=umd [L,R]
+
   - servername: "nhanes.librehealth.io"
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/nhanes"
