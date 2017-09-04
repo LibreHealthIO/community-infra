@@ -12,7 +12,7 @@ datadog_checks:
         tags:
           - instance:rocketchat
 datadog_config:
-  tags: "provider:digitalocean,location:ams,service:chat,ansible:partial,provisioner:manual"
+  tags: "provider:rackspace,location:dfw,service:chat,ansible:partial,provisioner:manual"
 
 nginx_ppa_use: true
 nginx_ppa_version: stable
