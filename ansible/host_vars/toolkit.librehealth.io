@@ -9,13 +9,11 @@ nginx_vhosts:
 - listen: "80 default_server"
   server_name: "toolkit.librehealth.io"
   extra_parameters: |
-    listen [::]:80 default_server;
     return 301 https://$host$request_uri;
   filename: "toolkit.librehealth.io.80.conf"
 - listen: "443 ssl http2 default_server"
   server_name: "toolkit.librehealth.io"
   extra_parameters: |
-    listen [::]:443 ssl http2 default_server;
     access_log /var/log/nginx/toolkit_access.log;
     error_log /var/log/nginx/toolkit_error.log;
     ssl_certificate /etc/letsencrypt/live/toolkit.librehealth.io/fullchain.pem;
