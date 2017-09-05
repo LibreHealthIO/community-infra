@@ -24,8 +24,9 @@
   name: postgresql
 - src: jaywink.letsencrypt
   name: letsencrypt
-- src: geerlingguy.nginx
-  name: nginx
+# uncomment when geerlingguy/ansible-role-nginx#125 is merged
+# - src: geerlingguy.nginx
+#   name: nginx
 - src: softasap.sa-tomcat
   name: tomcat
 
@@ -36,6 +37,9 @@
 - name: mysql
   src: https://github.com/yatesr/ansible-mysql
   version: 2f2a5a6134769a5b338fbbe26826801643043bca
+- name: nginx # remove when geerlingguy/ansible-role-nginx#125 is merged
+  src: https://github.com/robbyoconnor/ansible-role-nginx.git
+  version: add-ipv6-support
 - name: ntp
   src: https://github.com/yatesr/ntp.git
   version: 08fd3721fe6c47bd7b02bfec2af5bd47f0dd3da8
