@@ -43,6 +43,10 @@ nginx_vhosts:
         deny all;
     }
 
+    location ^~ /.well-known/acme-challenge/ {
+      root /usr/share/nginx/html;
+    }
+
 datadog_checks:
   nginx:
     init_config:
