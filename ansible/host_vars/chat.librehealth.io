@@ -45,6 +45,9 @@ nginx_vhosts:
           allow 127.0.0.1;
           deny all;
     }
+    location ^~ /.well-known/acme-challenge/ {
+      root /usr/share/nginx/html;
+    }
     location / {
         proxy_pass http://localhost:3000/;
         proxy_http_version 1.1;

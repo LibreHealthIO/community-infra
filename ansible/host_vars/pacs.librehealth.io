@@ -30,6 +30,9 @@ nginx_vhosts:
     ssl_stapling_verify on;
     add_header Strict-Transport-Security max-age=15768000;
 
+    location ^~ /.well-known/acme-challenge/ {
+      root /usr/share/nginx/html;
+    }
     location  /orthanc/  {
       proxy_pass http://localhost:8042;
       proxy_set_header HOST $host;
