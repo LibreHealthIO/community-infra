@@ -1,6 +1,5 @@
 [apache]
 ehr.librehealth.io
-ehr.rs.librehealth.io
 
 [ci-runners]
 ci-runner-rackspace-dfw.librehealth.io
@@ -28,11 +27,9 @@ pacs.librehealth.io
 
 [ehr]
 ehr.librehealth.io
-ehr.rs.librehealth.io
 
 [gitlabci]
 ehr.librehealth.io
-ehr.rs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
@@ -41,7 +38,6 @@ ehr.librehealth.io
 
 [php]
 ehr.librehealth.io
-ehr.rs.librehealth.io
 
 [nginx]
 chat.librehealth.io
@@ -61,7 +57,6 @@ ehr.librehealth.io
 
 [rackspace-iad]
 forums.librehealth.io
-ehr.rs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
@@ -86,7 +81,6 @@ toolkit.librehealth.io
 [www]
 chat.librehealth.io
 ehr.librehealth.io
-ehr.rs.librehealth.io
 pacs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
