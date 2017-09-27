@@ -45,7 +45,7 @@
   version: 08fd3721fe6c47bd7b02bfec2af5bd47f0dd3da8
 - name: sshd
   src: https://github.com/yatesr/ansible-sshd.git
-  version: aa6f9b5686d1c97deff456af641ac7e55fcbff8d
+  version: e0447b8a6dabcb43712004cd2291f795b21f6b8a
 - name: ssl-keys
   src: https://github.com/cintiadr/ansible-sslkeys.git
   version: 49292d68ca1309c9ed78c6a3404f0aaf3ad9829b
