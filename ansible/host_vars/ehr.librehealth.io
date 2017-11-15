@@ -1,5 +1,5 @@
 ---
-letsencrypt_domain: ehr.librehealth.io
+letsencrypt_domain: ehr.librehealth.io,ehr.stable.librehealth.io
 letsencrypt_pause_services:
   - apache2
 
@@ -56,6 +56,10 @@ apache_vhosts_ssl:
         </Directory>
         RewriteEngine On
 
+        # Easier linkage for the stable/develop EHR version
+        RewriteRule ^/stable/?$   https://ehr.stable.librehealth.io [L,R]
+        RewriteRule ^/develop?$   https://ehr.librehealth.io/
+
         # NHANES
         RewriteRule ^/nhanes/?$     https://ehr.librehealth.io/?site=nhanes [L,R]
         RewriteRule ^/nhanes/(.*)$  https://ehr.librehealth.io/$1?site=nhanes [L,R]
@@ -76,12 +80,53 @@ apache_vhosts_ssl:
         RewriteRule ^/umd/?$     https://ehr.librehealth.io/?site=umd [L,R]
         RewriteRule ^/umd/(.*)$  https://ehr.librehealth.io/$1?site=umd [L,R]
 
+
+  - servername: "ehr.stable.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
+    documentroot: "/opt/ehr-stable"
+    certificate_file: "/etc/letsencrypt/live/ehr.librehealth.io/fullchain.pem"
+    certificate_key_file: "/etc/letsencrypt/live/ehr.librehealth.io/privkey.pem"
+    extra_parameters: |
+      <Location /server-status>
+         SetHandler server-status
+         Allow from 127.0.0.1
+         Deny from all
+      </Location>
+      <Directory "/opt/ehr-stable">
+            Options Indexes FollowSymLinks
+            AllowOverride all
+            Require all granted
+        </Directory>
+        <Directory "/opt/ehr-stable/downloads">
+          Options +Indexes
+        </Directory>
+        <Directory "/opt/ehr-stable/sites">
+            AllowOverride None
+        </Directory>
+        <Directory "/opt/ehr-stable/sites/*/documents">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/ehr-stable/sites/*/edi">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/ehr-stable/sites/*/era">
+            order deny,allow
+            Deny from all
+        </Directory>
+
 apache_vhosts:
   - servername: "ehr.librehealth.io"
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
     extra_parameters: |
       Redirect permanent / https://ehr.librehealth.io
+  - servername: "ehr.stable.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
+    documentroot: "/opt/ehr-stable"
+    extra_parameters: |
+      Redirect permanent / https://ehr.stable.librehealth.io
   - servername: "nhanes.librehealth.io"
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
