@@ -18,6 +18,9 @@ sudo_users:
 # timezone for all servers
 timezone: UTC
 
+datadog_config:
+  process_agent_enabled: "true"
+
 # Manage ufw config and ufw rules
 ufw_config:
   globalconfig:
