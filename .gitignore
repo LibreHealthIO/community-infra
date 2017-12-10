@@ -20,3 +20,6 @@ Icon
 ansible/roles
 ansible/*.retry
 ansible/hosttest
+
+# .env
+**/.env
