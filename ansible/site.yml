@@ -5,3 +5,4 @@
 - include: lh-java.yml
 - include: lh-nginx.yml
 - include: lh-tomcat.yml
+- include: lh-datadog.yml
