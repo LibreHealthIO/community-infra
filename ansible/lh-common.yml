@@ -1,6 +1,5 @@
 ---
 # common playbook
-- include: lh-datadog.yml
 - include: lh-postgres.yml
 - hosts: all
   name: LibreHealth Common Play
