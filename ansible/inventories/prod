@@ -12,7 +12,6 @@ forums.librehealth.io
 radiology.librehealth.io
 pacs.librehealth.io
 toolkit.librehealth.io
-radai.club
 
 [discourse]
 forums.librehealth.io
@@ -25,7 +24,6 @@ toolkit.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
 pacs.librehealth.io
-radai.club
 
 [ehr]
 ehr.librehealth.io
@@ -46,7 +44,6 @@ chat.librehealth.io
 radiology.librehealth.io
 toolkit.librehealth.io
 pacs.librehealth.io
-radai.club
 
 [pacs]
 pacs.librehealth.io
@@ -57,7 +54,6 @@ toolkit.librehealth.io
 
 [proxmox]
 ehr.librehealth.io
-radai.club
 
 [rackspace-iad]
 forums.librehealth.io
@@ -74,7 +70,6 @@ pacs.librehealth.io
 [radiology]
 pacs.librehealth.io
 radiology.librehealth.io
-radai.club
 
 [tomcat]
 toolkit.librehealth.io
@@ -89,4 +84,3 @@ ehr.librehealth.io
 pacs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
-radai.club
