@@ -60,6 +60,14 @@ toolkit.librehealth.io
 ehr.librehealth.io
 radai.club
 
+[rackspace]
+ci-runner-rackspace-dfw.librehealth.io
+chat.librehealth.io
+forums.librehealth.io
+radiology.librehealth.io
+toolkit.librehealth.io
+pacs.librehealth.io
+
 [rackspace-iad]
 forums.librehealth.io
 toolkit.librehealth.io
