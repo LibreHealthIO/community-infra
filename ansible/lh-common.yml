@@ -1,6 +1,7 @@
 ---
 # common playbook
 - include: lh-postgres.yml
+- include: lh-mysql.yml
 - hosts: all
   name: LibreHealth Common Play
   become: yes

@@ -39,18 +39,26 @@ radai.club
 [java]
 ehr.librehealth.io
 
-[php]
+[mysql]
 ehr.librehealth.io
+radai.club
+radiology.librehealth.io
+toolkit.librehealth.io
+
 
 [nginx]
 chat.librehealth.io
-radiology.librehealth.io
-toolkit.librehealth.io
 pacs.librehealth.io
 radai.club
+radiology.librehealth.io
+toolkit.librehealth.io
 
 [pacs]
 pacs.librehealth.io
+
+[php]
+ehr.librehealth.io
+
 
 [postgresql]
 pacs.librehealth.io

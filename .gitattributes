@@ -1,4 +1,6 @@
+ansible/.vault-pass filter=git-crypt diff=git-crypt
 ansible/group_vars/datadog/api_key filter=git-crypt diff=git-crypt
 ansible/group_vars/postgresql filter=git-crypt diff=git-crypt
+ansible/group_vars/mysql filter=git-crypt diff=git-crypt
 gitlab_ci_keys/* filter=git-crypt diff=git-crypt
 docker-compose.yml filter=git-crypt diff=git-crypt
