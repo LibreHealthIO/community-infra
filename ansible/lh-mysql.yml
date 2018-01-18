@@ -4,3 +4,5 @@
   become_user: root
   roles:
     - mysql
+  tasks:
+    - include: tasks/mysql_add_datadog_user.yml

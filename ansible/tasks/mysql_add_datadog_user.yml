@@ -1,0 +1,7 @@
+- name: Add Datadog user to mysql for monitoring
+  mysql_user:
+    name: "{{ vault_mysql_datadog_user }}"
+    host: "%"
+    password: "{{ vault_mysql_datadog_password }}"
+    priv: "*.*:REPLICATION CLIENT,PROCESS/performance_schema.*:SELECT"
+  no_log: yes
