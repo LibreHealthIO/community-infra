@@ -1,0 +1,28 @@
+---
+mysql_root_username: root
+mysql_root_password: "{{ vault_mysql_root_password }}"
+mysql_root_password_update: yes
+mysql_enabled_on_startup: yes
+overwrite_global_mycnf: yes
+mysql_bind_address: '127.0.0.1'
+mysql_packages:
+  - mysql-client-5.7
+  - mysql-server-5.7
+  - python-mysqldb
+
+datadog_checks:
+  mysql:
+    init_config:
+
+    instances:
+      - server: localhost
+        user: "{{ vault_mysql_datadog_user }}"
+        pass: "{{ vault_mysql_datadog_password }}"
+        sock: "/var/run/mysqld/mysqld.sock"
+        options:
+            replication: 0
+            extra_status_metrics: true
+            extra_innodb_metrics: true
+            extra_performance_metrics: true
+            schema_size_metrics: true
+            disable_innodb_metrics: false
