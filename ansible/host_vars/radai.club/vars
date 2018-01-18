@@ -10,7 +10,15 @@ letsencrypt_email: infrastructure@librehealth.io
 letsencrypt_force_renew: false
 letsencrypt_pause_services:
   - nginx
-
+mysql_databases:
+  - name: radai
+    encoding: utf8
+    collation: utf8_general_ci
+mysql_users:
+  - name: "{{ vault_mysql_radai_user }}"
+    host: "%"
+    password: "{{ vault_mysql_radai_password }}"
+    priv: "radai.*:ALL"
 nginx_vhosts:
 - listen: "80 default_server"
   server_name: "radai.club"
@@ -53,6 +61,7 @@ nginx_vhosts:
     location ^~ /.well-known/acme-challenge/ {
       root /usr/share/nginx/html;
     }
+
 datadog_checks:
   nginx:
     init_config:
