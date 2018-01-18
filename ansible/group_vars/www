@@ -3,9 +3,11 @@ letsencrypt_email: infrastructure@librehealth.io
 letsencrypt_request_www: false
 letsencrypt_force_renew: false
 letsencrypt_certbot_version: master
+
 dhparam_update_enabled: true
 dhparam_size: 2048
 dhparam_file: "/etc/ssl/certs/dhparam.pem"
+
 ufw_rules:
   http:
     port: 80
@@ -15,3 +17,10 @@ ufw_rules:
     port: 443
     proto: tcp
     rule: allow
+
+datadog_checks:
+  ssl_check_expire_days:
+    init_config:
+
+    instances:
+     - cert: /etc/letsencrypt/live/{{ inventory_hostname }}/fullchain.pem

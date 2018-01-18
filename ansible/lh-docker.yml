@@ -5,3 +5,7 @@
   roles:
     - docker
     - docker-compose
+  tasks:
+    - include: tasks/docker-install-hacks.yml
+  handlers:
+    - include: handlers/monitoring.yml
