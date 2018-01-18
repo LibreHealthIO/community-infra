@@ -21,6 +21,19 @@ timezone: UTC
 datadog_config:
   process_agent_enabled: "true"
 
+datadog_checks:
+  upgrades_check:
+    init_config:
+    instances:
+        - foo: bar
+  dns_check:
+    init_config:
+      default_timeout: 4
+    instances:
+        - name: google
+          hostname: www.google.com
+          timeout: 8
+
 # Manage ufw config and ufw rules
 ufw_config:
   globalconfig:

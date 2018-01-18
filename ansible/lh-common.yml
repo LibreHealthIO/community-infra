@@ -1,7 +1,7 @@
 ---
 # common playbook
-- include: lh-postgres.yml
-- include: lh-mysql.yml
+# - include: lh-postgres.yml
+# - include: lh-mysql.yml
 - hosts: all
   name: LibreHealth Common Play
   become: yes
@@ -14,6 +14,13 @@
     # - ntp
     - timezone
     # - crontab
+  tasks:
+   - include: tasks/hostname.yml # should happen before installing datadog
+   - include: tasks/updates.yml
+   - include: tasks/extra-monitoring.yml
+  handlers:
+    - include: handlers/monitoring.yml
+
 
 # - hosts: ci-runners
 #   become: yes

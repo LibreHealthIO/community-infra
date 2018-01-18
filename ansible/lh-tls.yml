@@ -8,3 +8,7 @@
   roles:
     - dhparam
     - letsencrypt
+  tasks:
+    - include: tasks/extra-tls.yml
+  handlers:
+    - include: handlers/monitoring.yml
