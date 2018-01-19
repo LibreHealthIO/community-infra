@@ -22,7 +22,7 @@
   name: mysql
 - src: geerlingguy.php
   name: php
-- src: grim-fendango.postgresql
+- src: ANXS.postgresql
   name: postgresql
 - src: jaywink.letsencrypt
   name: letsencrypt
