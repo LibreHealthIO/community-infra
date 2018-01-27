@@ -9,7 +9,7 @@
   - name: Reboot machine cron
     cron:
       name: "reboot-machine"
-      weekday: "0"
+      weekday: "6"
       minute: "0"
       hour: "6"
       job: "/usr/sbin/reboot-machine.sh >> /var/log/reboot-machine.log 2>&1"
