@@ -11,9 +11,7 @@
     - sudo
     - sshd
     - ufw
-    # - ntp
     - timezone
-    # - crontab
   tasks:
    - include: tasks/hostname.yml # should happen before installing datadog
    - include: tasks/updates.yml
