@@ -31,6 +31,9 @@ nginx_vhosts:
     add_header Strict-Transport-Security max-age=15768000;
 
     location / {
+      add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+      add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
+      add_header 'Access-Control-Allow-Origin' '*';
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
       proxy_set_header X-Forward-Proto http;
