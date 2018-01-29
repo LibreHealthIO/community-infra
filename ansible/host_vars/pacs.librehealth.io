@@ -54,6 +54,13 @@ nginx_vhosts:
           allow 127.0.0.1;
           deny all;
       }
+
+ufw_rules:
+  dicom:
+    port: 4242
+    proto: tcp
+    rule: allow
+
 datadog_config:
   tags: "provider:rackspace,location:hkg,service:discourse,ansible:partial,provisioner:manual"
 datadog_checks:
