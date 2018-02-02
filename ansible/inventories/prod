@@ -48,6 +48,9 @@ pacs.librehealth.io
 [pacs]
 pacs.librehealth.io
 
+[postfix]
+ehr.librehealth.io
+
 [postgresql]
 pacs.librehealth.io
 toolkit.librehealth.io

@@ -1,0 +1,7 @@
+---
+- hosts: postfix
+  name: LibreHealth Postfix Play
+  become: yes
+  become_user: root
+  roles:
+    - postfix
