@@ -42,6 +42,9 @@
 - name: ntp
   src: https://github.com/yatesr/ntp.git
   version: 08fd3721fe6c47bd7b02bfec2af5bd47f0dd3da8
+- name: postfix
+  src: https://github.com/petemcw/ansible-role-postfix.git
+  version: 6772b873a877d393c290203e1f60219ce8df320d
 - name: sshd
   src: https://github.com/yatesr/ansible-sshd.git
   version: e0447b8a6dabcb43712004cd2291f795b21f6b8a

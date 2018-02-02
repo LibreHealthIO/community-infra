@@ -1,0 +1,2 @@
+postfix_domain: 'librehealth.io'
+postfix_notify_email: 'infrastructure@librehealth.io'

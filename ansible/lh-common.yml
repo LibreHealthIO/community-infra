@@ -1,5 +1,6 @@
 ---
 # common playbook
+- include: lh-postfix.yml
 - include: lh-postgres.yml
 - include: lh-mysql.yml
 - hosts: all
