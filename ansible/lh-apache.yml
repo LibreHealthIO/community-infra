@@ -1,0 +1,7 @@
+---
+
+- hosts: apache
+  name: LibreHealth apache play
+  become: yes
+  roles:
+    - apache

@@ -3,3 +3,8 @@
   become: yes
   roles:
     - datadog
+  tasks:
+   - include: tasks/updates.yml
+   - include: tasks/extra-monitoring.yml
+  handlers:
+    - include: handlers/monitoring.yml
