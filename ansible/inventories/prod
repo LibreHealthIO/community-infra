@@ -12,6 +12,7 @@ forums.librehealth.io
 radiology.librehealth.io
 pacs.librehealth.io
 toolkit.librehealth.io
+wiki.librehealth.io
 
 [discourse]
 forums.librehealth.io
@@ -24,6 +25,7 @@ toolkit.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
 pacs.librehealth.io
+wiki.librehealth.io
 
 [ehr]
 ehr.librehealth.io
@@ -44,6 +46,7 @@ chat.librehealth.io
 radiology.librehealth.io
 toolkit.librehealth.io
 pacs.librehealth.io
+wiki.librehealth.io
 
 [pacs]
 pacs.librehealth.io
@@ -70,6 +73,9 @@ chat.librehealth.io
 [rackspace-hkg]
 pacs.librehealth.io
 
+[rackspace-ord]
+wiki.librehealth.io
+
 [radiology]
 pacs.librehealth.io
 radiology.librehealth.io
@@ -87,3 +93,4 @@ ehr.librehealth.io
 pacs.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
+wiki.librehealth.io

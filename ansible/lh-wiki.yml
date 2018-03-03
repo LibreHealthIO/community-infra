@@ -1,0 +1,31 @@
+---
+- hosts: wiki
+  become: true
+  tasks:
+    - name: Create mediawiki install dir
+      file:
+        path: /var/mediawiki
+        state: directory
+        mode: "0755"
+    - name: Copy compose file
+      copy:
+        src: files/mediawiki/docker-compose.yml
+        dest: /var/mediawiki
+    - name: copy env files for mediawiki
+      copy:
+        src: files/mediawiki/.env.mediawiki
+        dest: /var/mediawiki/
+        mode: "0700"
+    - name: copy env file for mysql container
+      copy:
+       src: files/mediawiki/.env.mysql
+       dest: /var/mediawiki
+       mode: "0700"
+    - name: copy logo
+      copy:
+        src: files/mediawiki/logo.png
+        dest: /var/mediawiki
+    - name: Copy extra config over
+      copy:
+        src: files/mediawiki/ExtraLocalSettings.php
+        dest: /var/mediawiki
