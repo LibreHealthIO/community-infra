@@ -1,7 +1,6 @@
 ---
-letsencrypt_domain: pacs.librehealth.io
+letsencrypt_domain: susi.librehealth.io
 letsencrypt_email: infrastructure@librehealth.io
-letsencrypt_force_renew: false
 letsencrypt_pause_services:
   - nginx
 users:
@@ -12,19 +11,19 @@ users:
 
 nginx_vhosts:
 - listen: "80 default_server"
-  server_name: "pacs.librehealth.io"
+  server_name: "susi.librehealth.io"
   return: "301 https://$host$request_uri"
-  filename: "pacs.librehealth.io.80.conf"
+  filename: "susi.librehealth.io.80.conf"
 
 - listen: "443 ssl http2 default_server"
-  server_name: "pacs.librehealth.io"
-  access_log: "/var/log/nginx/pacs_access.log"
-  error_log: "/var/log/nginx/pacs_error.log"
+  server_name: "susi.librehealth.io"
+  access_log: "/var/log/nginx/susi_access.log"
+  error_log: "/var/log/nginx/susi_error.log"
   root: "/usr/share/nginx/html"
   index: "index.html index.htm"
   extra_parameters: |
-    ssl_certificate /etc/letsencrypt/live/pacs.librehealth.io/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/pacs.librehealth.io/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/susi.librehealth.io/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/susi.librehealth.io/privkey.pem;
     ssl_dhparam /etc/ssl/certs/dhparam.pem;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:ECDHE-RSA-AES128-GCM-SHA256:AES256+EECDH:DHE-RSA-AES128-GCM-SHA256:AES256+EDH:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4";
@@ -62,7 +61,7 @@ ufw_rules:
     rule: allow
 
 datadog_config:
-  tags: "provider:rackspace,location:hkg,service:discourse,ansible:partial,provisioner:manual"
+  tags: "provider:rackspace,location:hkg,service:susi,ansible:partial,provisioner:manual"
 datadog_checks:
   nginx:
     init_config:
@@ -70,4 +69,4 @@ datadog_checks:
       - nginx_status_url: https://localhost/nginx_status/
         ssl_validation: False
         tags:
-          - instance:pacs
+          - instance:susi
