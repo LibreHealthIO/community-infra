@@ -37,28 +37,12 @@ nginx_vhosts:
     location ^~ /.well-known/acme-challenge/ {
       root /usr/share/nginx/html;
     }
-    location  /orthanc/  {
-      proxy_pass http://localhost:8042;
-      proxy_set_header HOST $host;
-      proxy_set_header X-Real-IP $remote_addr;
-      rewrite /orthanc(.*) $1 break;
-      add_header 'Access-Control-Allow-Credentials' 'true';
-      add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-      add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-      add_header 'Access-Control-Allow-Origin' '*';
-    }
     location /nginx_status {
           stub_status on;
           access_log off;
           allow 127.0.0.1;
           deny all;
       }
-
-ufw_rules:
-  dicom:
-    port: 4242
-    proto: tcp
-    rule: allow
 
 datadog_config:
   tags: "provider:rackspace,location:hkg,service:susi,ansible:partial,provisioner:manual"
