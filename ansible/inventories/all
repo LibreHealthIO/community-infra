@@ -10,7 +10,7 @@ ci-runner-rackspace-dfw.librehealth.io
 ehr.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
-pacs.librehealth.io
+susi.librehealth.io
 toolkit.librehealth.io
 radai.club
 wiki.librehealth.io
@@ -25,7 +25,7 @@ ehr.librehealth.io
 toolkit.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
-pacs.librehealth.io
+susi.librehealth.io
 radai.club
 wiki.librehealth.io
 
@@ -50,14 +50,14 @@ toolkit.librehealth.io
 
 [nginx]
 chat.librehealth.io
-pacs.librehealth.io
+susi.librehealth.io
 radai.club
 radiology.librehealth.io
 toolkit.librehealth.io
 wiki.librehealth.io
 
-[pacs]
-pacs.librehealth.io
+[susi]
+susi.librehealth.io
 
 [postfix]
 ehr.librehealth.io
@@ -65,9 +65,8 @@ ehr.librehealth.io
 [php]
 ehr.librehealth.io
 
-
 [postgresql]
-pacs.librehealth.io
+susi.librehealth.io
 toolkit.librehealth.io
 
 [proxmox]
@@ -80,7 +79,7 @@ chat.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
 toolkit.librehealth.io
-pacs.librehealth.io
+susi.librehealth.io
 wiki.librehealth.io
 
 [rackspace-iad]
@@ -93,19 +92,18 @@ ci-runner-rackspace-dfw.librehealth.io
 chat.librehealth.io
 
 [rackspace-hkg]
-pacs.librehealth.io
+susi.librehealth.io
 
 [rackspace-ord]
 wiki.librehealth.io
 
 [radiology]
-pacs.librehealth.io
+susi.librehealth.io
 radiology.librehealth.io
 radai.club
 
 [tomcat]
 toolkit.librehealth.io
-radiology.librehealth.io
 
 [toolkit]
 toolkit.librehealth.io
@@ -113,7 +111,7 @@ toolkit.librehealth.io
 [www]
 chat.librehealth.io
 ehr.librehealth.io
-pacs.librehealth.io
+susi.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 radai.club
