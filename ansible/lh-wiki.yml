@@ -29,3 +29,9 @@
       copy:
         src: files/mediawiki/ExtraLocalSettings.php
         dest: /var/mediawiki
+    - name: Start things via Docker
+      docker_service:
+        project_src: /var/mediawiki
+        recreate: always
+        build: yes
+        pull: yes
