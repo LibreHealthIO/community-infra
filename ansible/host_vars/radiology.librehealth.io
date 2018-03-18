@@ -66,6 +66,12 @@ nginx_vhosts:
     location ^~ /.well-known/acme-challenge/ {
       root /usr/share/nginx/html;
     }
+ufw_rules:
+  viewer:
+    port: 3000
+    proto: tcp
+    rule: allow
+
 datadog_checks:
   nginx:
     init_config:
