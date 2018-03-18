@@ -8,8 +8,8 @@
   name: datadog
 - src: andrewrothstein.docker
   name: docker
-- src: michaelcontento.docker-compose
-  name: docker-compose
+- name: docker-compose
+  src: franklinkim.docker-compose
 - src: gronke.dhparam
   name: dhparam
 - src: gtrafimenkov.gitlab-ci-multi-runner
