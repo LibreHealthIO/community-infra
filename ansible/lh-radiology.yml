@@ -1,0 +1,17 @@
+---
+- hosts: 'radiology.librehealth.io'
+  become: true
+  tasks:
+    - name: Clone Docker Repository on host
+      git:
+        repo: 'https://gitlab.com/librehealth/lh-radiology-docker.git'
+        dest: '/var/radiology'
+        update: yes
+        clone: yes
+    - name: Start Docker Containers
+      docker_service:
+        build: yes
+        pull: yes
+        debug: yes
+        recreate: always
+        project_src: /var/radiology
