@@ -15,6 +15,7 @@ services:
     - mediawiki_images:/images
     - ./logo.png:/var/www/mediawiki/resources/assets/logo.png:ro
     - ./ExtraLocalSettings.php:/var/www/mediawiki/ExtraLocalSettings.php:ro
+    - ./extensions/YouTube:/var/www/mediawiki/extensions/YouTube:ro
     restart: always
   mediawiki_mysql:
     image: mysql:5.7
