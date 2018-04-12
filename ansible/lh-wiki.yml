@@ -29,6 +29,10 @@
       copy:
         src: files/mediawiki/ExtraLocalSettings.php
         dest: /var/mediawiki
+    - name: Copy over extension directory
+      copy:
+        src: files/mediawiki/extensions/
+        dest: /var/mediawiki/extensions/
     - name: Start things via Docker
       docker_service:
         project_src: /var/mediawiki
