@@ -34,6 +34,18 @@ datadog_checks:
           hostname: www.google.com
           timeout: 8
 
+unattended_allowed_origins:
+- '"${distro_id}:${distro_codename}-security";'
+
+unattended_package_blacklist: []
+
+unattended_mail: "infrastructure@librehealth.io"
+unattended_auto_fix_interrupted_dpkg: true
+unattended_minimal_steps: true
+unattended_remove_unused_dependencies: true
+unattended_syslog_enable: true
+unattended_syslog_facility: "daemon"
+
 # Manage ufw config and ufw rules
 ufw_config:
   globalconfig:
