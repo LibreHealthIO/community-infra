@@ -13,6 +13,7 @@
     - sshd
     - ufw
     - timezone
+    - unattended-upgrades
   tasks:
    - include: tasks/hostname.yml # should happen before installing datadog
 

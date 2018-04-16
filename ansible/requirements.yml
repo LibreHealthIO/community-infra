@@ -31,6 +31,8 @@
 #   name: nginx
 - src: softasap.sa-tomcat
   name: tomcat
+- src: Luzifer.ubuntu-unattended-upgrades
+  name: unattended-upgrades
 
 # from git
 - name: crontab
