@@ -13,12 +13,3 @@
     - unattended-upgrades
   tasks:
    - include: tasks/hostname.yml # should happen before installing datadog
-
-
-# - hosts: ci-runners
-#   become: yes
-#   become_user: root
-#   roles:
-#     - gitlab-ci-multi-runner
-#   tags:
-#     - runner
