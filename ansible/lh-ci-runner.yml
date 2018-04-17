@@ -1,0 +1,8 @@
+- hosts: ci-runners
+  name: GitLab CI runner play
+  become: yes
+  become_user: root
+  roles:
+    - gitlab-ci-multi-runner
+  tags:
+    - runner
