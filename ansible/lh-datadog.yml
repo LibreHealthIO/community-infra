@@ -4,7 +4,15 @@
   roles:
     - datadog
   tasks:
-   - include: tasks/updates.yml
-   - include: tasks/extra-monitoring.yml
+   - import_tasks: tasks/updates.yml
+   - import_tasks: tasks/extra-monitoring.yml
   handlers:
-    - include: handlers/monitoring.yml
+    - import_tasks: handlers/monitoring.yml
+
+- hosts: www
+  name: Datadog Play to add LE Cert Expiry monitoring
+  become: yes
+  tasks:
+    - import_tasks: tasks/extra-tls.yml
+  handlers:
+    - import_tasks: handlers/monitoring.yml

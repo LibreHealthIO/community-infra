@@ -1,5 +1,5 @@
 ---
-# Playbook for provisioning ssl certs using cerbot. Additional variables
+# Playbook for provisioning ssl certs using certbot. Additional variables
 # specified in host_vars.
 - hosts: www
   name: "Let's Encrypt Play"
@@ -8,7 +8,3 @@
   roles:
     - dhparam
     - letsencrypt
-  tasks:
-    - include: tasks/extra-tls.yml
-  handlers:
-    - include: handlers/monitoring.yml
