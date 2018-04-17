@@ -1,4 +1,7 @@
 # Site-wide play
+- include: lh-postfix.yml
+- include: lh-postgres.yml
+- include: lh-mysql.yml
 - include: lh-common.yml
 - include: lh-datadog.yml
 - include: lh-php.yml
