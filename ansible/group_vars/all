@@ -18,6 +18,9 @@ sudo_users:
 # timezone for all servers
 timezone: UTC
 
+datadog_agent5: yes
+datadog_agent_version: "1:5.23.0-1"
+
 datadog_config:
   process_agent_enabled: "true"
 
@@ -26,6 +29,15 @@ datadog_checks:
     init_config:
     instances:
         - foo: bar
+  disk:
+    init_config:
+    instances:
+      - use_mount: no
+        excluded_filesystems:
+          - tmpfs
+          - nsfs
+          - overlay
+
   dns_check:
     init_config:
       default_timeout: 4
@@ -33,6 +45,7 @@ datadog_checks:
         - name: google
           hostname: www.google.com
           timeout: 8
+
 
 unattended_allowed_origins:
 - '"${distro_id}:${distro_codename}-security";'
