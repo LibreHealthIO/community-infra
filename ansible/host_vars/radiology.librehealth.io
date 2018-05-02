@@ -88,6 +88,16 @@ nginx_vhosts:
         proxy_set_header X-Forward-Proto http;
         proxy_pass http://127.0.0.1:8080/;
       }
+      location  /orthanc/  {
+        proxy_pass http://localhost:8042;
+        proxy_set_header HOST $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        rewrite /orthanc(.*) $1 break;
+        add_header 'Access-Control-Allow-Credentials' 'true';
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Origin' '*';
+      }
       location /nginx_status {
           stub_status on;
           access_log off;
