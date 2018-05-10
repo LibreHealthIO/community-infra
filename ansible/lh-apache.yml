@@ -5,3 +5,4 @@
   become: yes
   roles:
     - apache
+    - adminer
