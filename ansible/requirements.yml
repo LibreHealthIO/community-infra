@@ -14,7 +14,7 @@
   src: franklinkim.docker-compose
 - src: gronke.dhparam
   name: dhparam
-- src: gtrafimenkov.gitlab-ci-multi-runner
+- src: eRadical.ansible-gitlab-runner
   name: gitlab-ci-multi-runner
 - src: zerohacks.imagemagick
   name: imagemagick
