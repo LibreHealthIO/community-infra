@@ -36,7 +36,7 @@ $ git-crypt lock
 ```sh
 $ git-crypt status
 ```
-**PLEASE AVOID RUNNING `git-crypt init`!!**
+:skull_and_crossbones: **PLEASE AVOID RUNNING `git-crypt init`!!**  :skull_and_crossbones:
 
 For a list of files which are encrypted you can check out `.gitattributes` in the root of this repository.
 
@@ -65,7 +65,7 @@ We made every attempt to keep things as open as possible. We are 100% transparen
 ### [PostgreSQL][] Play (`lh-postgres.yml`) (included in the Common Play)
 Installs and configures [PostgreSQL][] for hosts that need it. This is only run if needed on the given host. It is included in the Common Play.
 
-### [Certbot][] Play (`certbot.yml`)
+### [Certbot][] Play (`lh-tls.yml`)
 Provisions and renews [Let's Encrypt SSL Certificates](https://letsencrypt.org) using [Certbot][]
 
 Installs Certbot if it is not installed on the server. This is written to be run on its own as-needed (every 3 months).
@@ -77,14 +77,19 @@ Installs and configures nginx
 Installs Apache, [PHP](https://php.net), [Composer](https://getcomposer.org), and [Imagemagick](https://www.imagemagick.org/script/index.php).
 
 ### [Docker][] play (`lh-docker.yml`)
-installs [docker](https://docs.docker.com/engine/)/[docker-compose](https://docs.docker.com/compose/)
+installs [Docker][] / [Docker Compose][]
 
-### [LibreHealth Toolkit][] / [LibreHealth Radiology][] (`lh-tomcat.yml`)
+### [LibreHealth Toolkit][] (`lh-tomcat.yml`)
 This sets up and installs java, and tomcat.
 
+### [LibreHealth Radiology][] (`lh-radiology.yml`)
+Deploys [LibreHealth Radiology][] using [Docker Compose][]
+
+### [Mediawiki][] for [LibreHealth EHR][](`lh-wiki.yml`)
+Deploys [Mediawiki][] using [Docker Compose][]
 
 ### Site-wide play which includes everything (`site.yml`)
-Includes all of the above(except `cerbot.yml` and `update.yml`). This is the we run.
+Includes all of the above(except `lh-tls.yml` and `update.yml`). This is the play we typically run.
 
 ## Requirements
 * This repo.
@@ -132,6 +137,8 @@ This will only update the package to the latest version if it is already install
 [LibreHealth Radiology]: https://librehealth.io/projects/lh-radiology
 [LibreHealth Toolkit]: https://librehealth.io/projects/lh-toolkit
 [PostgreSQL]: https://www.postgresql.org
-[Docker]: https://docs.docker.com
+[Docker]: https://docs.docker.com/engine
+[Docker Compose]: https://docs.docker.com/compose
 [PHP]: https://php.net
 [nginx]: https://nginx.com
+[Mediawiki]: https://www.mediawiki.org/wiki/MediaWiki
