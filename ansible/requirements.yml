@@ -8,10 +8,8 @@
   name: composer
 - src: Datadog.datadog
   name: datadog
-- src: andrewrothstein.docker
-  name: docker
-- name: docker-compose
-  src: franklinkim.docker-compose
+# - src: geerlingguy.docker
+#   name: docker
 - src: gronke.dhparam
   name: dhparam
 - src: eRadical.ansible-gitlab-runner
@@ -40,6 +38,9 @@
 - name: crontab
   src: https://github.com/yatesr/ansible-crontab.git
   version: dd8944f44675af0d2e14741619043fd60a921dd5
+- name: docker
+  src: https://github.com/robbyoconnor/ansible-role-docker.git
+  version: add-daemon-config
 - name: nginx # remove when geerlingguy/ansible-role-nginx#125 is merged
   src: https://github.com/robbyoconnor/ansible-role-nginx.git
   version: add-ipv6-support

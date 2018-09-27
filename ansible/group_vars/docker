@@ -1,12 +1,12 @@
 ---
-docker_dns_resolvers:
- - '8.8.8.8'
- - '8.8.4.4'
 
-docker_compose_version: 1.19.0
-docker_storage_driver: overlay2
-docker_remote: False
-docker_tls: False
+docker_install_compose: yes
+docker_compose_version: "1.22.0"
+docker_compose_path: /usr/local/bin/docker-compose
+
+docker_daemon_opts:
+  - "storage-driver": "overlay2"
+  - "dns": ["8.8.8.8", "8.8.4.4"]
 
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/#/enable-ufw-forwarding
 ufw_config:
