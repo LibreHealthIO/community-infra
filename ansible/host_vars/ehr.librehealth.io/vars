@@ -45,6 +45,7 @@ apache_vhosts_ssl:
   #       </Directory>
   #       <Directory "/opt/education/sites">
   #           AllowOverride None
+  #           Options -Indexes
   #       </Directory>
   #       <Directory "/opt/education/sites/*/documents">
   #           order deny,allow
@@ -79,6 +80,7 @@ apache_vhosts_ssl:
         </Directory>
         <Directory "/opt/nhanes/sites">
             AllowOverride None
+            Options -Indexes
         </Directory>
         <Directory "/opt/nhanes/sites/*/documents">
             order deny,allow
@@ -111,6 +113,7 @@ apache_vhosts_ssl:
         </Directory>
         <Directory "/opt/ehr/sites">
             AllowOverride None
+            Options -Indexes
         </Directory>
         <Directory "/opt/ehr/sites/*/documents">
             order deny,allow
@@ -152,6 +155,7 @@ apache_vhosts_ssl:
         </Directory>
         <Directory "/opt/ehr-stable/sites">
             AllowOverride None
+            Options -Indexes
         </Directory>
         <Directory "/opt/ehr-stable/sites/*/documents">
             order deny,allow
