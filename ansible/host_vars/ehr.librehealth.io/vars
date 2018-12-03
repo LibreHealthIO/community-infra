@@ -195,7 +195,7 @@ apache_vhosts:
 
 apache_mods_enabled:
   - rewrite.load
-  - php7.0.load
+  - php7.1.load
   - status.load
 
 datadog_checks:

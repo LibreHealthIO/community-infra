@@ -24,6 +24,8 @@
   name: mysql
 - src: geerlingguy.php
   name: php
+- src: geerlingguy.php-versions
+  name: php-versions
 - src: ANXS.postgresql
   name: postgresql
 - src: jaywink.letsencrypt

@@ -1,4 +1,6 @@
 ---
+php_version: '7.1'
+php_versions_install_recommends: no
 php_error_reporting: "E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED"
 php_enable_webserver: false
 php_max_input_vars: "3000"
@@ -6,18 +8,19 @@ php_short_open_tag: true
 php_max_input_time: "90"
 php_packages:
   - php-apcu
-  - php7.0-common
-  - php7.0-cli
-  - php7.0-dev
+  - php7.1-common
+  - php7.1-cli
+  - php7.1-dev
   - libpcre3-dev
-  - php7.0-gd
-  - php7.0-curl
-  - php7.0-imap
-  - php7.0-json
-  - php7.0-opcache
-  - php7.0-xml
-  - php7.0-mbstring
-  - php7.0-mcrypt
-  - php7.0-soap
-  - php7.0-zip
-  - libapache2-mod-php7.0
+  - php7.1-gd
+  - php7.1-curl
+  - php7.1-imap
+  - php7.1-json
+  - php7.1-opcache
+  - php7.1-xml
+  - php7.1-mbstring
+  - php7.1-mcrypt
+  - php7.1-mysql
+  - php7.1-soap
+  - php7.1-zip
+  - libapache2-mod-php7.1

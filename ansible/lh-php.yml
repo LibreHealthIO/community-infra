@@ -4,6 +4,7 @@
   become: yes
   name: LibreHealth PHP Play
   roles:
+    - php-versions
     - php
     - composer
     - imagemagick
