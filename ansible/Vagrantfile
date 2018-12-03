@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.require_version '>= 1.8.0'
+
+required_plugins = %w(vagrant-vbguest vagrant-serverspec)
+required_plugins.each do |plugin|
+  exec "vagrant plugin install #{plugin};vagrant #{ARGV.join(' ')}" unless Vagrant.has_plugin? plugin || ARGV[0] == 'plugin'
+end
+
+# Vagrant VMs.
+# vm => group (in ansible)
+servers = {
+  'ehr' => %w(apache php mysql)
+}
+
+Vagrant.configure(2) do |config|
+  config.vm.box = 'ubuntu/xenial64'
+  config.vm.box_check_update = true
+
+  config.vm.network 'forwarded_port', guest: 8080, host: 8081
+  #
+  config.vm.provider 'virtualbox' do |v|
+    v.memory = 2048
+    v.cpus = 2
+  end
+
+  config.vm.provision 'shell', inline: <<-SHELL
+    set -x
+    sudo apt-get update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install python python-pip
+  SHELL
+
+  servers.each do |srv, groups|
+    config.vm.define srv do |host|
+      host.vm.provision 'ansible' do |ansible|
+        ansible.verbose = 'v'
+        ansible.playbook = 'site.yml'
+        # ansible.inventory_path = 'inventories/all'
+        # ansible.ask_vault_pass = true
+        ansible.groups = groups.map { |g| { g => [srv] } }
+                               .reduce { |h, v| h.merge v }
+                               .merge('vagrant' => [srv])
+      end
+      host.vm.provision :serverspec do |spec|
+        spec.pattern = "spec/#{srv}_spec.rb"
+      end
+    end
+  end
+end
