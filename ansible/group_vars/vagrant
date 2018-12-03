@@ -1,0 +1,58 @@
+# Sudo users, % for groups. Default to nopasswd.
+sudo_users:
+  - root
+  - "%wheel"
+  - "%admin"
+  - ubuntu
+  - vagrant
+
+apache_listen_ip: "*"
+apache_vhosts:
+  - servername: "ehr.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
+    documentroot: "/opt/ehr"
+    extra_parameters: |
+  - servername: "ehr.stable.librehealth.io"
+    serveradmin: infrastructure@librehealth.io
+    documentroot: "/opt/ehr-stable"
+    certificate_file: "/etc/letsencrypt/live/ehr.librehealth.io/fullchain.pem"
+    certificate_key_file: "/etc/letsencrypt/live/ehr.librehealth.io/privkey.pem"
+    extra_parameters: |
+      <Location /server-status>
+         SetHandler server-status
+         Allow from 127.0.0.1
+         Deny from all
+      </Location>
+      <Directory "/opt/ehr-stable">
+            Options Indexes FollowSymLinks
+            AllowOverride all
+            Require all granted
+        </Directory>
+        <Directory "/opt/ehr-stable/sites">
+            AllowOverride None
+            Options -Indexes
+        </Directory>
+        <Directory "/opt/ehr-stable/sites/*/documents">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/ehr-stable/sites/*/edi">
+            order deny,allow
+            Deny from all
+        </Directory>
+        <Directory "/opt/ehr-stable/sites/*/era">
+            order deny,allow
+            Deny from all
+        </Directory>
+
+
+apache_mods_enabled:
+  - rewrite.load
+  - php7.0.load
+  - status.load
+
+datadog_enabled: no
+
+datadog_config:
+  process_agent_enabled: "true"
+  tags: "provider:local,region:none,environment:vagrant,backup:not-applicable,ansible:full,provisioner:vagrant"
