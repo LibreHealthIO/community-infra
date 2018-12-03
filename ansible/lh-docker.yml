@@ -4,7 +4,7 @@
   become_user: root
   roles:
     - docker
-    - docker-compose
+    # - docker-compose
   tasks:
     - include: tasks/docker-install-hacks.yml
   handlers:
