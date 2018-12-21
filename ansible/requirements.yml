@@ -1,6 +1,7 @@
 # from galaxy (keep alphabetical by role name)
-- src: geerlingguy.adminer
-  name: adminer
+# uncomment when geerlingguy/ansible-role-admi#9 or #12 is merged.
+# - src: geerlingguy.adminer
+#   name: adminer
 - src: andrewrothstein.curl # docker role depends
 - src: geerlingguy.apache
   name: apache
@@ -37,6 +38,9 @@
   name: unattended-upgrades
 
 # from git
+- name: adminer
+  src: https://github.com/robbyoconnor/ansible-role-adminer.git
+  version: force-download-if-old
 - name: crontab
   src: https://github.com/yatesr/ansible-crontab.git
   version: dd8944f44675af0d2e14741619043fd60a921dd5
