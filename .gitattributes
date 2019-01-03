@@ -3,3 +3,7 @@ ansible/.vault-pass filter=git-crypt diff=git-crypt
 ansible/group_vars/datadog/api_key filter=git-crypt diff=git-crypt
 ansible/group_vars/postgresql filter=git-crypt diff=git-crypt
 gitlab_ci_keys/* filter=git-crypt diff=git-crypt
+*.gpg filter=git-crypt diff=git-crypt
+*.key filter=git-crypt diff=git-crypt
+terraform/kops.json filter=git-crypt diff=git-crypt
+openrc filter=git-crypt diff=git-crypt
