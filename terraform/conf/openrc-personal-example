@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export TF_VAR_rax_user=
+export TF_VAR_rax_password=

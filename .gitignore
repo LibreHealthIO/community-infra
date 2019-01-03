@@ -23,3 +23,9 @@ ansible/hosttest
 
 # .env
 **/.env
+
+# vagrant
+.vagrant
+*.log
+
+openrc-personal
