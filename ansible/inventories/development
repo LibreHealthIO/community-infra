@@ -1,23 +1,23 @@
 [all]
-radai.club
+radai.librehealth.io
 
 [radiology]
-radai.club
+radai.librehealth.io
 
 [www]
-radai.club
+radai.librehealth.io
 
 [nginx]
-radai.club
+radai.librehealth.io
 
 [docker]
-radai.club
+radai.librehealth.io
 
 [mysql]
-radai.club
+radai.librehealth.io
 
 [postgresql]
-radai.club
+radai.librehealth.io
 
 [gitlabci]
-radai.club
+radai.librehealth.io
