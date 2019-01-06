@@ -3,7 +3,7 @@
 
 Vagrant.require_version '>= 1.8.0'
 
-required_plugins = %w(vagrant-vbguest vagrant-serverspec)
+required_plugins = %w[vagrant-vbguest vagrant-serverspec]
 required_plugins.each do |plugin|
   exec "vagrant plugin install #{plugin};vagrant #{ARGV.join(' ')}" unless Vagrant.has_plugin? plugin || ARGV[0] == 'plugin'
 end
@@ -11,7 +11,7 @@ end
 # Vagrant VMs.
 # vm => group (in ansible)
 servers = {
-  'ehr' => %w(apache php mysql)
+  'ehr' => %w[apache php mysql]
 }
 
 Vagrant.configure(2) do |config|
@@ -19,7 +19,6 @@ Vagrant.configure(2) do |config|
   config.vm.box_check_update = true
 
   config.vm.network 'forwarded_port', guest: 8080, host: 8081
-  #
   config.vm.provider 'virtualbox' do |v|
     v.memory = 2048
     v.cpus = 2
