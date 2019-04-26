@@ -2,17 +2,14 @@
 # uncomment when geerlingguy/ansible-role-admi#9 or #12 is merged.
 # - src: geerlingguy.adminer
 #   name: adminer
-- src: andrewrothstein.curl # docker role depends
 - src: geerlingguy.apache
   name: apache
 - src: geerlingguy.composer
   name: composer
 - src: Datadog.datadog
   name: datadog
-- src: andrewrothstein.docker
+- src: geerlingguy.docker
   name: docker
-- name: docker-compose
-  src: franklinkim.docker-compose
 - src: gronke.dhparam
   name: dhparam
 - src: eRadical.ansible-gitlab-runner

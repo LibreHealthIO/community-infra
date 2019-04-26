@@ -19,7 +19,7 @@ sudo_users:
 timezone: UTC
 
 datadog_agent5: yes
-datadog_agent_version: "1:5.31.0-1"
+datadog_agent_version: "1:5.32.2-1"
 
 datadog_config:
   process_agent_enabled: "true"
