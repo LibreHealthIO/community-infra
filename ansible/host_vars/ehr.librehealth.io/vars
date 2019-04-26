@@ -123,6 +123,13 @@ datadog_checks:
       - apache_status_url: http://localhost/server-status?auto
         tags:
           - instance:ehr
+  postfix:
+    init_config:
+      postqueue: true
+    instances:
+      - config_directory: /etc/postfix
+    tags:
+      - ehr
 
 datadog_config:
   tags: "provider:proxmox,location:MCI,service:ehr,ansible:partial,provisioner:manual"
