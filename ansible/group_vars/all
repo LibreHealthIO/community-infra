@@ -33,7 +33,7 @@ datadog_checks:
     init_config:
     instances:
       - use_mount: no
-        excluded_filesystems:
+        file_system_blacklist:
           - tmpfs
           - nsfs
           - overlay
