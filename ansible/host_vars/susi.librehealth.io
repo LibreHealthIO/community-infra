@@ -1,8 +1,6 @@
 ---
 letsencrypt_domain: susi.librehealth.io
-letsencrypt_email: infrastructure@librehealth.io
-letsencrypt_pause_services:
-  - nginx
+
 users:
  gichoya:
   comment: Judy Gichoya

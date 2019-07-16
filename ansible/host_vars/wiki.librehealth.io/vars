@@ -1,7 +1,6 @@
 ---
 letsencrypt_domain: wiki.ehr.librehealth.io,wiki.librehealth.io
-letsencrypt_pause_services:
-  - nginx
+
 nginx_vhosts:
 - listen: "80 default_server"
   server_name: "wiki.ehr.librehealth.io wiki.librehealth.io"

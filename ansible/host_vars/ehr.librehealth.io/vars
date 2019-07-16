@@ -1,7 +1,5 @@
 ---
 letsencrypt_domain: ehr.librehealth.io,nhanes.librehealth.io
-letsencrypt_pause_services:
-  - apache2
 
 users:
  tony:
