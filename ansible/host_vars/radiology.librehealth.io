@@ -10,8 +10,6 @@ users:
   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDVArVdZ9pqyPhgS6MU5mMR/dlxW7JMbK8cYOPkRJIXSzHbacusmFUglsxlMSOfboGvRGoZ8IQEzQ/UyorXt087P48xPHCJdyPYl7aAwACT6tcO5HRhFRTZyzo+JIvJuGo8XDW1ArowGIPi2JYGdOq3Io31c2q2iFYnW6xd1bNpW9LgIcYd4MoGuc4ebMIxbfThf7NidPefdTJ5BNzypMyT3xgHUuuqK7UPxULx9ciyHxsSWZh7vg5PuUGfaVqpZ8WyiYd56QC7hV3iHbmg21M8eX0jkMY6phTGHgn7auMNhuHbrOTmRzpKunHefr1NT0VUz6E1/Y6XXCqYTiZPXKx judywawira@MacBook-Pro-5.local"
 
 letsencrypt_domain: radiology.librehealth.io,viewer.radiology.librehealth.io
-letsencrypt_email: infrastructure@librehealth.io
-letsencrypt_force_renew: false
 letsencrypt_pause_services:
   - nginx
 
