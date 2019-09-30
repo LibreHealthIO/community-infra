@@ -98,30 +98,31 @@ Includes all of the above(except `lh-tls.yml` and `update.yml`). This is the pla
 
 ## How to use this
 How this is run is dependent on what project you are working with.
+
 ### To run for all hosts
 
-`ansible-playbook -i inventories/all site.yml`
+`ansible-playbook -i inventories/all site.yml -vvv`
 
 ### For [LibreHealth EHR][]
 
-`ansible-playbook -i inventories/all -l ehr.librehealth.io site.yml`
+`ansible-playbook -i inventories/all -l ehr.librehealth.io site.yml -vvv`
 
 ### For [LibreHealth Toolkit][] / [LibreHealth Radiology][]
 
 #### [LibreHealth Radiology][]
 
-`ansible-playbook -i inventories/all -l radiology.librehealth.io site.yml`
+`ansible-playbook -i inventories/all -l radiology.librehealth.io site.yml -vvv`
 
 #### [LibreHealth Toolkit][]
 
-`ansible-playbook -i inventories/all -l toolkit.librehealth.io site.yml`
+`ansible-playbook -i inventories/all -l toolkit.librehealth.io site.yml -vvv`
 
 ## Running example ad-hoc commands
 
 #### Update all packages playbook
 This will do a dry run of updating all packages on all servers
 
-`ansible-playbook -i inventories/all update.yml --check -vvvv`
+`ansible-playbook -i inventories/all update.yml --check -vvv`
 
 When satisfied this will not break anything drop the `--check` and it will update all servers in the inventories.
 
