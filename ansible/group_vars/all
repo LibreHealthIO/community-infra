@@ -13,11 +13,6 @@ users:
    groups: 'admin'
    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDpc+zJuTFk1wPEeSsLQdVruv5p1IfmzDOBzEcixKmDjWj8vaHVM+4qXsnSVsTUrMtggafvITIlsbuMBAv65TvRxCHOBjE7TK/ocGtYTb2fXSdjsq4FUSFidK2c12uIMSHAiHvdeMkPmoI1cKg1DGUj14+26qP5unpgClgbcKNDDSsNLhSGDKIV/oiGRL3xBESqIpabkRBdCFzuQYIT9Dh2zpa3Kw8mnV5Qczw4DKt4o6G25jYzmNu+RT4D75sO7208PC6ue+wApOk5xfQA2mjlCfK/o1W5vxEHzFDJwS5sbwsL1xoqnLvV07U0JZd46DDzYIfuryM6t8+0jR3hfhJP0dJ5m7wa/yfD9R+E/w2oJPJ/m8mz82SGBceW1DpzUf79yCtiQie4AxjwGlYk+5/8Ei9XS8GNqLgpYEEDK/wFRMX1qlsIcohBbpdsvvMZKQfGQr+M1vAFLDAX1SIBkiDzscwv7tiilJO41RxVFRZ00RWRDVI46C3OGGMYv31sdtaUbrjrUVG73gDCB5oB+DXHo8n8q0B8kejFAWive/1dSvYEX7eh61iMS3qUmbwHKdOpmUE57bBRcwqsNxDZt2Ov/49Kj+4ZY+sh4BAIM45sjVssuOee7uGU8EQCNOF80F4PjtzYp7LJvO0ZTmtyoDMKw04Yj0sFwbsxnFWayKu08Q== olena.stoliarova@drillinginfo.com"
 
-# Sudo users, % for groups. Default to nopasswd.
-sudo_users:
-  - root
-  - "%wheel"
-  - "%admin"
 
 # timezone for all servers
 timezone: UTC
@@ -50,18 +45,18 @@ datadog_checks:
           hostname: www.google.com
           timeout: 8
 
+security_sudoers_passwordless:
+  - root
+  - "%wheel"
+  - "%admin"
 
-unattended_allowed_origins:
-- '"${distro_id}:${distro_codename}-security";'
+security_autoupdate_enabled: true
+security_autoupdate_blacklist: []
 
-unattended_package_blacklist: []
+security_autoupdate_mail_to: "infrastructure@librehealth.io"
+security_autoupdate_mail_on_error: true
 
-unattended_mail: "infrastructure@librehealth.io"
-unattended_auto_fix_interrupted_dpkg: true
-unattended_minimal_steps: true
-unattended_remove_unused_dependencies: true
-unattended_syslog_enable: true
-unattended_syslog_facility: "daemon"
+security_fail2ban_enabled: true
 
 # Manage ufw config and ufw rules
 ufw_config:

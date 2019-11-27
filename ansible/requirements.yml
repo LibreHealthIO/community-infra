@@ -29,10 +29,10 @@
 # uncomment when geerlingguy/ansible-role-nginx#125 is merged
 # - src: geerlingguy.nginx
 #   name: nginx
+- src: geerlingguy.security
+  name: security
 - src: softasap.sa-tomcat
   name: tomcat
-- src: Luzifer.ubuntu-unattended-upgrades
-  name: unattended-upgrades
 
 # from git
 - name: adminer
@@ -50,15 +50,9 @@
 - name: postfix
   src: https://github.com/petemcw/ansible-role-postfix.git
   version: 6772b873a877d393c290203e1f60219ce8df320d
-- name: sshd
-  src: https://github.com/yatesr/ansible-sshd.git
-  version: e0447b8a6dabcb43712004cd2291f795b21f6b8a
 - name: ssl-keys
   src: https://github.com/cintiadr/ansible-sslkeys.git
   version: 49292d68ca1309c9ed78c6a3404f0aaf3ad9829b
-- name: sudo
-  src: https://github.com/cintiadr/ansible-sudo.git
-  version: 17215cb95018aae1810b826e544fb7280c7d0443
 - name: timezone
   src: https://github.com/yatesr/ansible-timezone.git
   version: 854af629e6740c92b9098026148906643a13465c

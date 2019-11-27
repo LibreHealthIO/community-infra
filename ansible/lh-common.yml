@@ -5,11 +5,9 @@
   become: yes
   become_user: root
   roles:
-    - users
-    - sudo
-    - sshd
-    - ufw
+    - security
     - timezone
-    - unattended-upgrades
+    - users
+    - ufw
   tasks:
    - include: tasks/hostname.yml # should happen before installing datadog
