@@ -49,8 +49,7 @@ This play runs the following roles which are common with all servers, regardless
 This includes:
 
 - Setting up users
-- installing sudo
-- installing sshd
+- Configures the servers to a secure default with sshd/sudo/fail2ban
 - configuring ufw
 - configuring ntp for clock synchronization
 - setting the timezone (UTC)
