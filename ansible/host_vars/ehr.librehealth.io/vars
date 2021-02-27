@@ -35,6 +35,7 @@ apache_vhosts_ssl:
             AllowOverride all
             Require all granted
         </Directory>
+
         <Directory "/opt/nhanes/downloads">
           Options +Indexes
         </Directory>
@@ -54,7 +55,9 @@ apache_vhosts_ssl:
             order deny,allow
             Deny from all
         </Directory>
-
+        RewriteEngine On
+        # Docs
+        RewriteRule ^/docs/?(.*)$  https://nhanes.librehealth.io/$1?site=docs [L,R,NE]
   - servername: "ehr.librehealth.io"
     serveradmin: infrastructure@librehealth.io
     documentroot: "/opt/ehr"
@@ -89,8 +92,6 @@ apache_vhosts_ssl:
         </Directory>
         RewriteEngine On
 
-        # Docs
-        RewriteRule ^/docs/?(.*)$  https://ehr.librehealth.io/$1?site=docs [L,R,NE]
 
         # NHANES
         RewriteRule ^/nhanes/?(.*)$  https://nhanes.librehealth.io/$1 [L,R,NE]

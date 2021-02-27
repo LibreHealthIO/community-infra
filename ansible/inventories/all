@@ -1,5 +1,5 @@
 [apache]
-ehr.librehealth.io
+# ehr.librehealth.io
 
 [ci-runners]
 ci-runner-rackspace-dfw.librehealth.io
@@ -7,7 +7,7 @@ ci-runner-rackspace-dfw.librehealth.io
 [datadog]
 chat.librehealth.io
 ci-runner-rackspace-dfw.librehealth.io
-ehr.librehealth.io
+# ehr.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
 toolkit.librehealth.io
@@ -19,23 +19,23 @@ forums.librehealth.io
 [docker]
 ci-runner-rackspace-dfw.librehealth.io
 chat.librehealth.io
-ehr.librehealth.io
+# ehr.librehealth.io
 toolkit.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
 wiki.librehealth.io
 
 [ehr]
-ehr.librehealth.io
+# ehr.librehealth.io
 
 [gitlabci]
-ehr.librehealth.io
+# ehr.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 
 
 [mysql]
-ehr.librehealth.io
+# ehr.librehealth.io
 toolkit.librehealth.io
 
 
@@ -47,16 +47,16 @@ wiki.librehealth.io
 
 
 [postfix]
-ehr.librehealth.io
+# ehr.librehealth.io
 
 [php]
-ehr.librehealth.io
+# ehr.librehealth.io
 
 [postgresql]
 toolkit.librehealth.io
 
 [proxmox]
-ehr.librehealth.io
+# ehr.librehealth.io
 
 [rackspace]
 ci-runner-rackspace-dfw.librehealth.io
@@ -93,7 +93,7 @@ wiki.librehealth.io
 
 [www]
 chat.librehealth.io
-ehr.librehealth.io
+# ehr.librehealth.io
 toolkit.librehealth.io
 radiology.librehealth.io
 wiki.librehealth.io

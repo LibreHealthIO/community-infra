@@ -5,6 +5,13 @@ mysql_root_password_update: yes
 mysql_enabled_on_startup: yes
 overwrite_global_mycnf: yes
 mysql_bind_address: '127.0.0.1'
+
+mysql_key_buffer_size: "256M"
+mysql_max_allowed_packet: "64M"
+mysql_table_open_cache: "256"
+mysql_max_connections: "350"
+
+
 mysql_packages:
   - mysql-client-5.7
   - mysql-server-5.7

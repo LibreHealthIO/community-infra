@@ -26,6 +26,8 @@
   name: postgresql
 - src: jaywink.letsencrypt
   name: letsencrypt
+- src: hmlkao.docker_mailserver
+  name: mailserver
 # uncomment when geerlingguy/ansible-role-nginx#125 is merged
 # - src: geerlingguy.nginx
 #   name: nginx

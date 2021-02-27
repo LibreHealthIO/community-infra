@@ -4,6 +4,8 @@ php_enable_webserver: false
 php_max_input_vars: "3000"
 php_short_open_tag: true
 php_max_input_time: "90"
+php_max_execution_time: "300"
+
 php_packages:
   - php-apcu
   - php7.0-common
