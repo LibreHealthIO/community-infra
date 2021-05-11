@@ -9,3 +9,5 @@
       user: name='ci'
         groups='tomcat8'
         append=yes
+    - name: Install mysql java
+      apt:  name=libmariadb-java

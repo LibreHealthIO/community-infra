@@ -1,7 +1,6 @@
 ---
-java_version: "8"
-option_install_java: true
-tomcat_version: "8"
+option_install_java: false
+tomcat_version: "9"
 tomcat_port: "8080"
 tomcat_control_port: "8005"
 tomcat_catalina_home: "/usr/share/tomcat{{tomcat_version}}"
@@ -12,3 +11,5 @@ option_tomcat_admin_install: false
 option_tomcat_user_install: false
 option_tomcat_native_install: true
 option_tomcat_mysql_jbdc_install: true
+
+option_tomcat_mysql_jbdc_install: false
