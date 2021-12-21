@@ -9,7 +9,7 @@
         update: yes
         clone: yes
     - name: Start Docker Containers
-      docker_service:
+      docker_compose:
         build: yes
         pull: yes
         debug: yes
