@@ -12,22 +12,22 @@
   name: docker
 - src: gronke.dhparam
   name: dhparam
-- src: eRadical.ansible-gitlab-runner
-  name: gitlab-ci-multi-runner
-- src: zerohacks.imagemagick
-  name: imagemagick
+# - src: eRadical.ansible-gitlab-runner
+#   name: gitlab-ci-multi-runner
+# - src: zerohacks.imagemagick
+#   name: imagemagick
 - src: geerlingguy.java
   name: java
 - src: geerlingguy.mysql
   name: mysql
-- src: geerlingguy.php
-  name: php
-- src: ANXS.postgresql
+# - src: geerlingguy.php
+#   name: php
+- src: geerlingguy.postgresql
   name: postgresql
-- src: jaywink.letsencrypt
+- src: thefinn93.letsencrypt
   name: letsencrypt
-- src: hmlkao.docker_mailserver
-  name: mailserver
+# - src: hmlkao.docker_mailserver
+#   name: mailserver
 # uncomment when geerlingguy/ansible-role-nginx#125 is merged
 # - src: geerlingguy.nginx
 #   name: nginx
@@ -43,6 +43,9 @@
 - name: crontab
   src: https://github.com/yatesr/ansible-crontab.git
   version: dd8944f44675af0d2e14741619043fd60a921dd5
+- name: letsencrypt
+  src: https://github.com/thefinn93/ansible-letsencrypt
+  version: 45a305261ba84eb31e23b85edb4030049a3e623f
 - name: nginx # remove when geerlingguy/ansible-role-nginx#125 is merged
   src: https://github.com/robbyoconnor/ansible-role-nginx.git
   version: add-ipv6-support

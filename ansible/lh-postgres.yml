@@ -1,14 +1,4 @@
 - name: Install Postgresql
   hosts: postgresql
-  pre_tasks:
-    - name: Update apt and install postgres 9.5
-      become: yes
-      apt:
-        cache_valid_time: 1800
-        update_cache: yes
-        pkg: postgresql-9.5
-        state: present
-      tags:
-        - install
   roles:
     - postgresql

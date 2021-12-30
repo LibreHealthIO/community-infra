@@ -13,9 +13,9 @@ mysql_max_connections: "350"
 
 
 mysql_packages:
-  - mysql-client-5.7
-  - mysql-server-5.7
-  - python-mysqldb
+  - mysql-client-8.0
+  - mysql-server-8.0
+  - python3-mysqldb
 
 datadog_checks:
   mysql:

@@ -1,25 +1,29 @@
-# Basic settings
-postgresql_version: 9.6
-postgresql_encoding: 'UTF-8'
-postgresql_locale: 'en_US.UTF-8'
-postgresql_ctype: 'en_US.UTF-8'
+# Set postgresql state when configuration changes are made. Recommended values:
+# `restarted` or `reloaded`
+postgresql_restarted_state: "restarted"
 
-postgresql_admin_user: "postgres"
-postgresql_default_auth_method: "trust"
-postgresql_ext_install_contrib: yes
+postgresql_python_library: pytho3n-psycopg2
+postgresql_user: postgres
+postgresql_group: postgres
 
-postgresql_track_activities:          on
-postgresql_track_counts:              on
-postgresql_track_io_timing:           on
-postgresql_track_functions:           all
-postgresql_track_activity_query_size: 1024
-postgresql_update_process_title:      on
-postgresql_stats_temp_directory:      pg_stat_tmp
+# `md5` or `scram-sha-256` (https://www.postgresql.org/docs/10/auth-methods.html)
+postgresql_auth_method: "{{ ansible_fips  | ternary('scram-sha-256', 'md5') }}"
+
+postgresql_unix_socket_directories:
+  - /var/run/postgresql
+
+postgresql_service_state: started
+postgresql_service_enabled: true
+
+# Global configuration options that will be set in postgresql.conf.
+postgresql_global_config_options:
+  - option: unix_socket_directories
+    value: '{{ postgresql_unix_socket_directories | join(",") }}'
+
+# Debian only. Used to generate the locales used by PostgreSQL databases.
+postgresql_locales:
+  - 'en_US.UTF-8'
 
 
-# - Statistics Monitoring -
-
-postgresql_log_parser_stats:    on
-postgresql_log_planner_stats:   on
-postgresql_log_executor_stats:  on
-postgresql_log_statement_stats: on
+# Whether to output user data when managing users.
+postgres_users_no_log: true

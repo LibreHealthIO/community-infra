@@ -85,7 +85,7 @@ nginx_vhosts:
         proxy_pass http://127.0.0.1:8080/;
       }
       location  /orthanc/  {
-        proxy_pass http://localhost:8042;
+        proxy_pass http://127.0.0.1:8042;
         proxy_set_header HOST $host;
         proxy_set_header X-Real-IP $remote_addr;
         rewrite /orthanc(.*) $1 break;
@@ -171,7 +171,7 @@ nginx_vhosts:
           add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type, Authorization';
         }
 
-        proxy_pass http://localhost:3000/;
+        proxy_pass http://127.0.0.1:3000/;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
@@ -194,7 +194,7 @@ datadog_checks:
   nginx:
     init_config:
     instances:
-      - nginx_status_url: https://localhost/nginx_status/
+      - nginx_status_url: https://127.0.0.1/nginx_status/
         ssl_validation: False
         tags:
           - instance:radiology
