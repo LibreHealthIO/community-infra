@@ -1,5 +1,5 @@
 ---
-- hosts: 'radiology.librehealth.io'
+- hosts: radiology
   become: true
   tasks:
     - name: Clone Docker Repository on host
@@ -9,7 +9,7 @@
         update: yes
         clone: yes
     - name: Start Docker Containers
-      docker_compose:
+      community.docker.docker_compose:
         build: yes
         pull: yes
         debug: yes
