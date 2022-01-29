@@ -14,14 +14,10 @@ forums.librehealth.io
 
 [docker]
 chat.librehealth.io
-# ehr.librehealth.io
 toolkit.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
 ci-runner.librehealth.io
-
-[ehr]
-# ehr.librehealth.io
 
 [gitlabci]
 # ehr.librehealth.io
@@ -29,9 +25,6 @@ toolkit.librehealth.io
 radiology.librehealth.io
 
 [java]
-# ehr.librehealth.io
-
-[php]
 # ehr.librehealth.io
 
 [nginx]
@@ -50,8 +43,6 @@ toolkit.librehealth.io
 
 [toolkit]
 toolkit.librehealth.io
-
-[wiki]
 
 [www]
 chat.librehealth.io

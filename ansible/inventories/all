@@ -25,7 +25,6 @@ radiology.librehealth.io
 toolkit.librehealth.io
 
 [mysql]
-# ehr.librehealth.io
 toolkit.librehealth.io
 
 [nginx]
@@ -44,8 +43,6 @@ toolkit.librehealth.io
 
 [toolkit]
 toolkit.librehealth.io
-
-[wiki]
 
 [www]
 chat.librehealth.io
