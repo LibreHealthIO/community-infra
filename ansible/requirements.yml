@@ -12,8 +12,8 @@
   name: docker
 - src: gronke.dhparam
   name: dhparam
-# - src: eRadical.ansible-gitlab-runner
-#   name: gitlab-ci-multi-runner
+- src: riemers.gitlab-runner
+  name: gitlab-ci-multi-runner
 # - src: zerohacks.imagemagick
 #   name: imagemagick
 - src: geerlingguy.java

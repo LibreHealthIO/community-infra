@@ -1,0 +1,57 @@
+---
+gitlab_runner_registration_token: '{{ vault_gitlab_ci_token }}'
+gitlab_runner_concurrent: 2
+gitlab_check_interval: 3
+gitlab_runner_container_install: true
+gitlab_runner_container_image: gitlab/gitlab-runner
+gitlab_runner_container_tag: latest
+gitlab_runner_container_name: gitlab-runner
+gitlab_runner_container_restart_policy: unless-stopped
+
+
+# A list of runners to register and configure
+gitlab_runner_runners:
+    # The identifier of the runner.
+  - name: '{{ ansible_hostname }}'
+    # set to 'absent' if you want to delete the runner. Defaults to 'present'.
+    state: present
+    # The executor used by the runner.
+    executor: 'docker'
+    # Set maximum build log size in kilobytes.
+    output_limit: 4096
+    # Maximum number of jobs to run concurrently on this specific runner.
+    # Defaults to 0, simply means don't limit.
+    concurrent_specific: '0'
+    # The default Docker image to use. Required when executor is `docker`.
+    docker_image: 'ubuntu:18.04'
+    # The tags assigned to the runner.
+    tags: ["docker", "osuosl", "8gb"]
+    # Indicates whether this runner can pick jobs without tags.
+    run_untagged: true
+    # Docker privileged mode
+    docker_privileged: true
+    # Runner Locked. When a runner is locked, it cannot be assigned to other projects
+    locked: 'false'
+    # Add container to a custom network
+    docker_network_mode: bridge
+    env_vars: []
+    # Extra configuration options to change in the config.toml file
+    # This parameter is a dictionary where the first level keys are TOML section names
+    # Full list of configuration are available on Gitlab Runner documentation:
+    # See https://docs.gitlab.com/runner/configuration/advanced-configuration.html
+    #
+    # extra_configs:
+    #   runners.docker:
+    #     memory: 512m
+    #     allowed_images: ["ruby:*", "python:*", "php:*"]
+    #   runners.docker.sysctls:
+    #     net.ipv4.ip_forward: "1"
+
+
+
+
+
+
+
+datadog_config:
+  tags: "provider:osuosl,location:osu,service:ci-runner,ansible:full,provisioner:terraform"

@@ -1,6 +1,6 @@
 # Site-wide play
 - import_playbook: lh-common.yml
-# - import_playbook: lh-ci-runner.yml
+- import_playbook: lh-ci-runner.yml
 - import_playbook: lh-postfix.yml
 - import_playbook: lh-postgres.yml
 - import_playbook: lh-mysql.yml
@@ -11,4 +11,3 @@
 - import_playbook: lh-apache.yml
 - import_playbook: lh-nginx.yml
 - import_playbook: lh-tomcat.yml
-- import_playbook: lh-wiki.yml
