@@ -10,7 +10,7 @@ datadog_checks:
         tags:
           - instance:rocketchat
 datadog_config:
-  tags: "provider:rackspace,location:dfw,service:chat,ansible:partial,provisioner:manual"
+  tags: "provider:digitalocean,location:ams3,service:chat,ansible:partial,provisioner:terraform"
 
 nginx_vhosts:
 - listen: "80 default_server"

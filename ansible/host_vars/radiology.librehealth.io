@@ -199,4 +199,4 @@ datadog_checks:
         tags:
           - instance:radiology
 datadog_config:
-  tags: "provider:rackspace,location:iad,service:radiology,ansible:partial,provisioner:manual"
+  tags: "provider:osuosl,location:or,service:radiology,ansible:full,provisioner:terraform"

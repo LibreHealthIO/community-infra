@@ -15,4 +15,4 @@ ufw_rules:
     rule: allow
 
 datadog_config:
-  tags: "provider:rackspace,location:iad,service:discourse,ansible:partial,provisioner:manual"
+  tags: "provider:digitalocean,location:ams3,service:discourse,ansible:partial,provisioner:terraform"

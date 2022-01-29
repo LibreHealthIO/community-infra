@@ -96,4 +96,4 @@ datadog_checks:
           - instance:toolkit
 
 datadog_config:
-  tags: "provider:rackspace,location:iad,service:toolkit,ansible:partial,provisioner:manual"
+  tags: "provider:osuosl,location:or,service:toolkit,ansible:full,provisioner:terraform"
