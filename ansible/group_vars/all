@@ -35,6 +35,8 @@ datadog_checks:
           - tmpfs
           - nsfs
           - overlay
+        mount_point_exclude:
+          - /dev/loop*
 
   dns_check:
     init_config:
