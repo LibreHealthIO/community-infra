@@ -1,26 +1,30 @@
 ---
+
+nginx_ppa_use: false
+nginx_ppa_version: stable
+
 letsencrypt_email: infrastructure@librehealth.io
-letsencrypt_request_www: false
 letsencrypt_force_renew: false
 letsencrypt_certbot_version: master
+letsencrypt_webroot_path: /usr/share/nginx/html
 
 dhparam_update_enabled: true
 dhparam_size: 2048
 dhparam_file: "/etc/ssl/certs/dhparam.pem"
 
 ufw_rules:
-  http:
-    port: 80
-    proto: tcp
-    rule: allow
-  https:
-    port: 443
-    proto: tcp
-    rule: allow
+    http:
+        port: 80
+        proto: tcp
+        rule: allow
+    https:
+        port: 443
+        proto: tcp
+        rule: allow
 
 datadog_checks:
   ssl_check_expire_days:
     init_config:
-
     instances:
      - cert: /etc/letsencrypt/live/{{ inventory_hostname }}/fullchain.pem
+       min_collection_interval: 60

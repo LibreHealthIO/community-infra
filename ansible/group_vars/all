@@ -17,7 +17,10 @@ users:
 # timezone for all servers
 timezone: UTC
 
-datadog_agent5: yes
+datadog_agent_version: 7.78.4
+
+datadog_agent_allow_downgrade: true
+
 
 datadog_config:
   process_agent_enabled: "true"
@@ -26,18 +29,8 @@ datadog_checks:
   upgrades_check:
     init_config:
     instances:
-        - foo: bar
-  disk:
-    init_config:
-    instances:
-      - use_mount: no
-        file_system_blacklist:
-          - tmpfs
-          - nsfs
-          - overlay
-        mount_point_exclude:
-          - /dev/loop*
-
+        - {}
+    min_collection_interval: 60
   dns_check:
     init_config:
       default_timeout: 4
@@ -45,6 +38,22 @@ datadog_checks:
         - name: google
           hostname: www.google.com
           timeout: 8
+  disk:
+    init_config:
+        file_system_global_exclude:
+            - squashfs
+    instances:
+        - service_check_rw: true
+  ntp:
+    # https://github.com/DataDog/datadog-agent/issues/20369 from agent 7.66 versions
+    init_config:
+    instances:
+      - hosts:
+          - 0.datadog.pool.ntp.org
+          - 1.datadog.pool.ntp.org
+          - 2.datadog.pool.ntp.org
+          - 3.datadog.pool.ntp.org
+
 
 security_sudoers_passwordless:
   - root

@@ -1,4 +1,4 @@
-[ci-runners]
+[ci]
 ci-runner.librehealth.io
 
 [datadog]
@@ -6,6 +6,7 @@ chat.librehealth.io
 forums.librehealth.io
 radiology.librehealth.io
 ci-runner.librehealth.io
+toolkit.librehealth.io
 
 [discourse]
 forums.librehealth.io
@@ -25,7 +26,7 @@ radiology.librehealth.io
 toolkit.librehealth.io
 
 [mysql]
-toolkit.librehealth.io
+# toolkit.librehealth.io
 
 [nginx]
 chat.librehealth.io

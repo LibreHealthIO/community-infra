@@ -1,5 +1,67 @@
+---
   - name: Copy datadog check
     copy:
-      src: files/monitoring/upgrades_check.py
-      dest: /etc/dd-agent/checks.d/
+      owner: dd-agent
+      group: dd-agent
+      mode: 0755
+      src: files/monitoring/checks/upgrades_check.py
+      dest: /etc/datadog-agent/checks.d/
     notify: restart datadog-agent
+
+  - name: Ensure obsolete docker_daemon conf files are absent
+    file:
+      state: absent
+      path: /etc/datadog-agent/conf.d/docker_daemon.yml
+
+  - name: Ensure obsolete docker_daemon check files are absent
+    file:
+      state: absent
+      path: /etc/datadog-agent/checks.d/docker_daemon.py
+
+  - name: Remove datadog checks from Ver5 directory
+    file:
+      state: absent
+      path: /opt/dd-agent/checks.d/
+
+  - name: Upgrade Datadog-Agent Embdedded pip
+    command: /opt/datadog-agent/embedded/bin/pip install --upgrade pip
+
+  - name: Install checks python module for custom dd-checks
+    command: /opt/datadog-agent/embedded/bin/pip install checks
+
+  - name: Backup & Upgrades Check - Python Module Installation
+    command: /opt/datadog-agent/embedded/bin/pip install utils
+
+  - name:  Upgrade Python OpenSSL Module for SSL Expiry Check
+    command: /opt/datadog-agent/embedded/bin/pip install --upgrade pyopenssl
+
+
+  ## Adding some versions as dynamic tags for datadog
+  - name: Copy datadog prep-environment script for service
+    copy:
+      owner: dd-agent
+      group: dd-agent
+      mode: 0755
+      src: files/monitoring/prep-environment.sh
+      dest: /etc/datadog-agent/
+    notify: restart datadog-agent
+
+  - name: Create empty datadog environment file
+    copy:
+      owner: dd-agent
+      group: dd-agent
+      mode: 0644
+      src: files/monitoring/environment
+      dest: /etc/datadog-agent/
+      force: false
+    notify: restart datadog-agent
+
+  - name: Add ExecStartPre to datadog service
+    ansible.builtin.lineinfile:
+      path: /lib/systemd/system/datadog-agent.service
+      regexp: '^ExecStartPre=.*'
+      insertbefore: '^ExecStart=.*'
+      line: 'ExecStartPre=/etc/datadog-agent/prep-environment.sh'
+
+  - name: Reload datadog service
+    command: systemctl daemon-reload

@@ -10,6 +10,4 @@ tomcat_catalina_opts:
 option_tomcat_admin_install: false
 option_tomcat_user_install: false
 option_tomcat_native_install: true
-option_tomcat_mysql_jbdc_install: true
-
 option_tomcat_mysql_jbdc_install: false

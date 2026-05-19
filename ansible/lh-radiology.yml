@@ -4,10 +4,11 @@
   tasks:
     - name: Clone Docker Repository on host
       git:
-        repo: 'https://gitlab.com/librehealth/lh-radiology-docker.git'
+        repo: https://gitlab.com/librehealth/radiology/lh-radiology-docker.git
         dest: '/var/radiology'
         update: yes
         clone: yes
+        force: yes
     - name: Start Docker Containers
       community.docker.docker_compose:
         build: yes

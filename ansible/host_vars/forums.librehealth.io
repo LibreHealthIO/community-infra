@@ -16,3 +16,9 @@ ufw_rules:
 
 datadog_config:
   tags: "provider:digitalocean,location:ams3,service:discourse,ansible:partial,provisioner:terraform"
+
+datadog_checks:
+  ssl_check_expire_days:
+    init_config:
+    instances:
+      - cert: /var/discourse/shared/standalone/letsencrypt/{{ inventory_hostname }}/fullchain.cer

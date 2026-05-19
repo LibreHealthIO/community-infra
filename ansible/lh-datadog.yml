@@ -9,7 +9,7 @@
   handlers:
     - import_tasks: handlers/monitoring.yml
 
-- hosts: www
+- hosts: www, discourse
   name: Datadog Play to add LE Cert Expiry monitoring
   become: yes
   tasks:

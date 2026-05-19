@@ -4,4 +4,5 @@
     host: "%"
     password: "{{ vault_mysql_datadog_password }}"
     priv: "*.*:REPLICATION CLIENT,PROCESS/performance_schema.*:SELECT"
-  no_log: yes
+  no_log: true
+

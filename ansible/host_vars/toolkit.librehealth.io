@@ -1,4 +1,8 @@
+# vim: set ft=yaml:
+# -*- mode: yaml -*-
+# vscode: language yaml
 ---
+
 letsencrypt_domain: toolkit.librehealth.io
 
 nginx_vhosts:
@@ -6,6 +10,10 @@ nginx_vhosts:
   server_name: "toolkit.librehealth.io"
   return: "301 https://$host$request_uri"
   filename: "toolkit.librehealth.io.80.conf"
+  extra_parameters: |
+    location ^~ /.well-known/acme-challenge/ {
+      root /usr/share/nginx/html;
+    }
 
 - listen: "443 ssl http2 default_server"
   server_name: "toolkit.librehealth.io"
@@ -17,14 +25,14 @@ nginx_vhosts:
     ssl_certificate /etc/letsencrypt/live/toolkit.librehealth.io/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/toolkit.librehealth.io/privkey.pem;
     ssl_dhparam /etc/ssl/certs/dhparam.pem;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:ECDHE-RSA-AES128-GCM-SHA256:AES256+EECDH:DHE-RSA-AES128-GCM-SHA256:AES256+EDH:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4";
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
     ssl_prefer_server_ciphers on;
     ssl_session_timeout 1d;
     ssl_session_cache shared:SSL:50m;
     ssl_stapling on;
     ssl_stapling_verify on;
-    add_header Strict-Transport-Security max-age=15768000;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
     location / {
       if ($request_method = 'OPTIONS') {
@@ -71,14 +79,15 @@ nginx_vhosts:
       }
 
       proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-Forward-Proto http;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
       proxy_pass http://127.0.0.1:8080/;
     }
     location /nginx_status {
         stub_status on;
         access_log off;
         allow 127.0.0.1;
+        allow ::1;
         deny all;
     }
 

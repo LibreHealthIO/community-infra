@@ -5,4 +5,4 @@
   roles:
     - mysql
   tasks:
-    - include: tasks/mysql_add_datadog_user.yml
+    - import_tasks: tasks/mysql_add_datadog_user.yml

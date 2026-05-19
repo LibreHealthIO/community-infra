@@ -1,8 +1,14 @@
 ---
+
+  - name: install docker python library
+    apt:
+      name: python3-docker
+      state: present
+
   - name: Adding dd-agent to docker group
     user: name='dd-agent'
           groups='docker'
-          append=yes
+          append=true
 
   - name: Check if docker was restarted yet
     command: docker info

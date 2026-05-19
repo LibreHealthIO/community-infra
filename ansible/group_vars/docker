@@ -3,9 +3,6 @@ docker_dns_resolvers:
  - '8.8.8.8'
  - '8.8.4.4'
 
-docker_install_compose: true
-docker_compose_version: "1.24.0"
-
 
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/#/enable-ufw-forwarding
 ufw_config:

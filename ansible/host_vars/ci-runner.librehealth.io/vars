@@ -23,7 +23,7 @@ gitlab_runner_runners:
     # Defaults to 0, simply means don't limit.
     concurrent_specific: '0'
     # The default Docker image to use. Required when executor is `docker`.
-    docker_image: 'ubuntu:18.04'
+    docker_image: 'ubuntu:24.04'
     # The tags assigned to the runner.
     tags: ["docker", "osuosl", "8gb"]
     # Indicates whether this runner can pick jobs without tags.
@@ -34,18 +34,21 @@ gitlab_runner_runners:
     locked: 'false'
     # Add container to a custom network
     docker_network_mode: bridge
-    env_vars: []
     # Extra configuration options to change in the config.toml file
     # This parameter is a dictionary where the first level keys are TOML section names
     # Full list of configuration are available on Gitlab Runner documentation:
     # See https://docs.gitlab.com/runner/configuration/advanced-configuration.html
     #
-    # extra_configs:
-    #   runners.docker:
-    #     memory: 512m
-    #     allowed_images: ["ruby:*", "python:*", "php:*"]
-    #   runners.docker.sysctls:
-    #     net.ipv4.ip_forward: "1"
+    docker_volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock"
+        - "/cache"
+    extra_configs:
+    runners.docker:
+      memory: 512m
+      allowed_images: ["ruby:*", "node:*", "python:*", "php:*", "java:*"]
+      runners.docker.sysctls:
+        net.ipv4.ip_forward: "1"
+
 
 
 

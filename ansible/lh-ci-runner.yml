@@ -1,4 +1,4 @@
-- hosts: ci-runners
+- hosts: ci
   name: GitLab CI runner play
   become: yes
   become_user: root

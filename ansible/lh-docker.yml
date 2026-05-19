@@ -5,6 +5,6 @@
   roles:
     - docker
   tasks:
-    - include: tasks/docker-install-hacks.yml
+    - include_tasks: tasks/docker-install-hacks.yml
   handlers:
-    - include: handlers/monitoring.yml
+    - include_tasks: handlers/monitoring.yml
