@@ -1,21 +1,22 @@
 ---
 # Update playbook, Run with --check -v first to determine packages being upgraded
 - hosts: all
-  become: yes
+  become: true
 
   tasks:
-
     - name: Get aptitude for upgrade
       apt: pkg=aptitude state=present
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts['os_family'] == 'Debian'
 
     - name: Update Debian based distros
-      apt: update_cache=yes
-           cache_valid_time=600
-           upgrade=yes
-      when: ansible_os_family == 'Debian'
+      apt:
+        update_cache: yes
+        cache_valid_time: 600
+        upgrade: yes
+      when: ansible_facts['os_family'] == 'Debian'
 
     - name: Update RedHat based distros
-      yum: name=*
-           state=latest
-      when: ansible_os_family == 'RedHat'
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_facts['os_family'] == 'RedHat'
