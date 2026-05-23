@@ -10,13 +10,13 @@
 
     - name: Update Debian based distros
       apt:
-        update_cache: yes
+        update_cache: true
         cache_valid_time: 600
-        upgrade: yes
+        upgrade: true
       when: ansible_facts['os_family'] == 'Debian'
 
     - name: Update RedHat based distros
-      yum:
+      dnf:
         name: '*'
         state: latest
       when: ansible_facts['os_family'] == 'RedHat'
