@@ -11,26 +11,52 @@ ufw_rules:
 
 datadog_checks:
   nginx:
-    init_config:
+    init_config: {}
     instances:
       - nginx_status_url: https://127.0.0.1/nginx_status/
-        ssl_validation: False
+        ssl_validation: false
         tags:
           - instance:radiology
+
 datadog_config:
   tags: "provider:osuosl,location:or,service:radiology,ansible:full,provisioner:terraform"
 
 users:
- ivange94:
-   comment: Ivange Larry
-   groups: 'admin'
-   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2TCT52I9Ctiw3okZ9xeC1os8uSHhXtbsjh5C2FXkkWkH9muqstRZI8Z0jr6Fw+Xd9muR6eof4SCiOZFoeZU6pVtrEtbvOid9UzZnUhh3hRkqRigdq2S9NTla037iiLn/z1udhghYn5jEmmM7vFndiGR2u78nr3T3xoz2bHodgF7RvbF1Wk+n6nhJoLKOq6DxmKQDEALOJjCDZR3PxZYT5p3xifftPAqb8E0smE0nTnM07BlBg84duhyOgty6zyQaIZjXteO3m0aJFCWgDUQR8ybDCBF2gcpI6gEp0Cy9WMmC8ggWcbSx6LVVqRjCWBB2mKY79fyw3fEwyLXsAq2A9 ivange@Ivanges-MacBook-Pro-3.local"
- gichoya:
-  comment: Judy Gichoya
-  groups: 'admin'
-  ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDVArVdZ9pqyPhgS6MU5mMR/dlxW7JMbK8cYOPkRJIXSzHbacusmFUglsxlMSOfboGvRGoZ8IQEzQ/UyorXt087P48xPHCJdyPYl7aAwACT6tcO5HRhFRTZyzo+JIvJuGo8XDW1ArowGIPi2JYGdOq3Io31c2q2iFYnW6xd1bNpW9LgIcYd4MoGuc4ebMIxbfThf7NidPefdTJ5BNzypMyT3xgHUuuqK7UPxULx9ciyHxsSWZh7vg5PuUGfaVqpZ8WyiYd56QC7hV3iHbmg21M8eX0jkMY6phTGHgn7auMNhuHbrOTmRzpKunHefr1NT0VUz6E1/Y6XXCqYTiZPXKx judywawira@MacBook-Pro-5.local"
+  ivange94:
+    comment: Ivange Larry
+    groups: "admin"
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2TCT52I9Ctiw3okZ9xeC1os8uSHhXtbsjh5C2FXkkWkH9muqstRZI8Z0jr6Fw+Xd9muR6eof4SCiOZFoeZU6pVtrEtbvOid9UzZnUhh3hRkqRigdq2S9NTla037iiLn/z1udhghYn5jEmmM7vFndiGR2u78nr3T3xoz2bHodgF7RvbF1Wk+n6nhJoLKOq6DxmKQDEALOJjCDZR3PxZYT5p3xifftPAqb8E0smE0nTnM07BlBg84duhyOgty6zyQaIZjXteO3m0aJFCWgDUQR8ybDCBF2gcpI6gEp0Cy9WMmC8ggWcbSx6LVVqRjCWBB2mKY79fyw3fEwyLXsAq2A9 ivange@Ivanges-MacBook-Pro-3.local"
+  gichoya:
+    comment: Judy Gichoya
+    groups: "admin"
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDVArVdZ9pqyPhgS6MU5mMR/dlxW7JMbK8cYOPkRJIXSzHbacusmFUglsxlMSOfboGvRGoZ8IQEzQ/UyorXt087P48xPHCJdyPYl7aAwACT6tcO5HRhFRTZyzo+JIvJuGo8XDW1ArowGIPi2JYGdOq3Io31c2q2iFYnW6xd1bNpW9LgIcYd4MoGuc4ebMIxbfThf7NidPefdTJ5BNzypMyT3xgHUuuqK7UPxULx9ciyHxsSWZh7vg5PuUGfaVqpZ8WyiYd56QC7hV3iHbmg21M8eX0jkMY6phTGHgn7auMNhuHbrOTmRzpKunHefr1NT0VUz6E1/Y6XXCqYTiZPXKx judywawira@MacBook-Pro-5.local"
 
 letsencrypt_domain: radiology.librehealth.io,viewer.radiology.librehealth.io
+
+
+nginx_extra_http_options: |
+  # Rate limit zones
+  limit_req_zone $binary_remote_addr zone=radiology_limit:10m rate=10r/s;
+  limit_req_zone $binary_remote_addr zone=orthanc_limit:10m rate=5r/s;
+  limit_req_zone $binary_remote_addr zone=viewer_limit:10m rate=15r/s;
+  limit_req_status 429;
+
+  map $http_user_agent $block_agent {
+    default 0;
+
+    # empty user agents
+    "" 1;
+    "-" 1;
+
+    # Vulnerability/security scanners
+    ~*visionheight 1;
+    ~*CensysInspect 1;
+
+    ~*Go-http-client 1;
+
+    # Common aggressive crawlers & AI scrapers
+    ~*(SemrushBot|AhrefsBot|MJ12bot|DotBot|PetalBot|BLEXBot|YandexBot|bingbot|GPTBot|ClaudeBot|CCBot) 1;
+  }
 
 nginx_vhosts:
   - listen: "80 default_server"
@@ -60,11 +86,23 @@ nginx_vhosts:
       ssl_prefer_server_ciphers on;
       ssl_session_timeout 1d;
       ssl_session_cache shared:SSL:50m;
-      ssl_stapling on;
-      ssl_stapling_verify on;
       add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
       location / {
+        if ($block_agent = 1) {
+          return 403;
+        }
+
+        # Rate limit main API/app endpoint
+        limit_req zone=radiology_limit burst=20 nodelay;
+
+        # Global CORS Headers
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, PATCH, DELETE, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization' always;
+
+        # Preflight
         if ($request_method = 'OPTIONS') {
           add_header 'Access-Control-Allow-Origin' '*';
           add_header 'Access-Control-Allow-Credentials' 'true';
@@ -113,6 +151,9 @@ nginx_vhosts:
       }
 
       location /orthanc/ {
+        # Rate limit Orthanc backend operations
+        limit_req zone=orthanc_limit burst=10 nodelay;
+
         proxy_pass http://127.0.0.1:8042;
         proxy_set_header HOST $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -163,6 +204,9 @@ nginx_vhosts:
       add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
       location / {
+        # Rate limit viewer asset transfers
+        limit_req zone=viewer_limit burst=30 nodelay;
+
         if ($request_method = 'OPTIONS') {
           add_header 'Access-Control-Allow-Origin' '*';
           add_header 'Access-Control-Allow-Credentials' 'true';
@@ -215,4 +259,3 @@ nginx_vhosts:
         proxy_set_header X-Nginx-Proxy true;
         proxy_redirect off;
       }
-

@@ -2,20 +2,41 @@
 # -*- mode: yaml -*-
 # vscode: language yaml
 ---
-
 letsencrypt_domain: toolkit.librehealth.io
 
 datadog_checks:
   nginx:
-    init_config:
+    init_config: {}
     instances:
       - nginx_status_url: https://localhost/nginx_status/
-        ssl_validation: False
+        ssl_validation: false
         tags:
           - instance:toolkit
 
 datadog_config:
   tags: "provider:osuosl,location:or,service:toolkit,ansible:full,provisioner:terraform"
+
+nginx_extra_http_options: |
+
+  limit_req_zone $binary_remote_addr zone=toolkit_limit:10m rate=10r/s;
+  limit_req_status 429;
+
+  map $http_user_agent $block_agent {
+    default 0;
+
+    # empty user agents
+    "" 1;
+    "-" 1;
+
+    # Vulnerability/security scanners
+    ~*visionheight 1;
+    ~*CensysInspect 1;
+
+    ~*Go-http-client 1;
+
+    # Common aggressive crawlers & AI scrapers
+    ~*(SemrushBot|AhrefsBot|MJ12bot|DotBot|PetalBot|BLEXBot|YandexBot|bingbot|GPTBot|ClaudeBot|CCBot) 1;
+  }
 
 nginx_vhosts:
   - listen: "80 default_server"
@@ -46,11 +67,16 @@ nginx_vhosts:
       ssl_prefer_server_ciphers on;
       ssl_session_timeout 1d;
       ssl_session_cache shared:SSL:50m;
-      ssl_stapling on;
-      ssl_stapling_verify on;
       add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
       location / {
+        if ($block_agent = 1) {
+          return 403;
+        }
+
+        # Apply rate limiting
+        limit_req zone=toolkit_limit burst=20 nodelay;
+
         # Global CORS Headers
         add_header 'Access-Control-Allow-Origin' '*' always;
         add_header 'Access-Control-Allow-Credentials' 'true' always;
@@ -78,4 +104,3 @@ nginx_vhosts:
         allow ::1;
         deny all;
       }
-
